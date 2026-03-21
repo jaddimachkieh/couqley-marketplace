@@ -1,0 +1,8 @@
+# User data
+outputs/
+reports/*.csv
+reports/*.xlsx
+
+# Environment
+.env
+.env.local

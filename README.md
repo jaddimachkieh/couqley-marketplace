@@ -6,7 +6,7 @@ Restaurant analytics for Couqley French Bistro: sales, menu engineering, break-e
 
 1. Open **Claude Desktop** and launch **Claude Cowork**
 2. Go to **Plugins** (click "+")
-3. Add the plugin from the [plugin directory](https://claude.com/plugins-for/cowork) or GitHub: `github:jaddimachkieh/couqley-marketplace`
+3. Add the plugin from the [plugin directory](https://claude.com/plugins-for/cowork) or GitHub: `jaddimachkieh/couqley-marketplace`
 4. Create `reports/` and `outputs/` in your project folder (see below)
 
 ## Project Setup
