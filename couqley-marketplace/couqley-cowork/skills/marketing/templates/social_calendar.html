@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couqley - Content Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #F7F3E9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #CC3333 0%, #a02626 100%);
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            border-bottom: 3px solid #BF9966;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .week-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .week-btn {
+            background: white;
+            border: 2px solid #BF9966;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .week-btn:hover {
+            background: #BF9966;
+            color: white;
+        }
+
+        .week-btn.active {
+            background: #CC3333;
+            color: white;
+            border-color: #a02626;
+        }
+
+        /* Calendar section */
+        .calendar-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .week-title {
+            background: linear-gradient(90deg, #CC3333 0%, #a02626 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            margin: -2rem -2rem 1.5rem -2rem;
+            border-radius: 8px 8px 0 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        /* Calendar grid */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr 1fr 1fr;
+            gap: 1px;
+            background: #BF9966;
+            border: 2px solid #BF9966;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .calendar-grid > * {
+            background: white;
+            padding: 1rem;
+        }
+
+        .day-label {
+            background: #F7F3E9;
+            font-weight: bold;
+            color: #333;
+            border-right: 2px solid #BF9966;
+        }
+
+        .platform-header {
+            background: linear-gradient(135deg, #f9f7f4 0%, white 100%);
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid #BF9966;
+        }
+
+        .platform-header.instagram {
+            color: #CC3333;
+            border-left: 4px solid #CC3333;
+        }
+
+        .platform-header.facebook {
+            color: #BF9966;
+            border-left: 4px solid #BF9966;
+        }
+
+        .platform-header.email {
+            color: #333;
+            border-left: 4px solid #333;
+        }
+
+        /* Calendar cells */
+        .calendar-cell {
+            padding: 1rem;
+            border: 1px solid #BF9966;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calendar-cell.instagram {
+            border-left: 4px solid #CC3333;
+            background: rgba(204, 51, 51, 0.02);
+        }
+
+        .calendar-cell.facebook {
+            border-left: 4px solid #BF9966;
+            background: rgba(191, 153, 102, 0.02);
+        }
+
+        .calendar-cell.email {
+            border-left: 4px solid #333;
+            background: rgba(51, 51, 51, 0.02);
+        }
+
+        .content-theme {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #BF9966;
+        }
+
+        .caption-idea {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .hashtags {
+            font-size: 0.75rem;
+            color: #CC3333;
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid #BF9966;
+        }
+
+        /* Sidebar */
+        .content-sidebar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 2px solid #BF9966;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #CC3333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #BF9966;
+        }
+
+        .pillar-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #F7F3E9;
+            font-size: 0.95rem;
+        }
+
+        .pillar-item:last-child {
+            border-bottom: none;
+        }
+
+        .hashtag-group {
+            margin-bottom: 1rem;
+        }
+
+        .hashtag-category {
+            font-weight: bold;
+            color: #333;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .hashtag-list {
+            font-size: 0.8rem;
+            color: #CC3333;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #BF9966;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .calendar-grid {
+                grid-template-columns: 120px 1fr 1fr 1fr;
+            }
+
+            .day-label {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+
+            .calendar-cell {
+                padding: 0.8rem;
+                min-height: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-grid {
+                grid-template-columns: 100px 1fr 1fr;
+            }
+
+            .platform-header.email,
+            .calendar-cell.email {
+                display: none;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .calendar-section {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">COUQLEY</div>
+        <div class="tagline">FRENCH BISTRO</div>
+        <h1>Content Calendar</h1>
+    </header>
+
+    <div class="container">
+        <!-- Content Pillars and Hashtags Sidebar -->
+        <div class="content-sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Content Pillars</div>
+                <div class="pillar-item">🍷 Wine & Pairing Expertise</div>
+                <div class="pillar-item">👨‍🍳 Behind-the-Scenes Kitchen Life</div>
+                <div class="pillar-item">🌾 Seasonal & Local Ingredients</div>
+                <div class="pillar-item">🎉 Events & Special Occasions</div>
+                <div class="pillar-item">⭐ Customer Features & Reviews</div>
+                <div class="pillar-item">🇫🇷 French Culture & Heritage</div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Hashtag Reference</div>
+                <div class="hashtag-group">
+                    <div class="hashtag-category">Brand:</div>
+                    <div class="hashtag-list">#CouqleyBistro #FrenchCuisine #BistroLife</div>
+                </div>
+                <div class="hashtag-group">
+                    <div class="hashtag-category">Dining:</div>
+                    <div class="hashtag-list">#LocalDining #FineFood #RestaurantLife</div>
+                </div>
+                <div class="hashtag-group">
+                    <div class="hashtag-category">Community:</div>
+                    <div class="hashtag-list">#SupportLocal #FoodCommunity #InstaFood</div>
+                </div>
+                <div class="hashtag-group">
+                    <div class="hashtag-category">Trending:</div>
+                    <div class="hashtag-list">#FoodPhotography #RestaurantOfTheDay</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week Navigation -->
+        <div class="week-nav">
+            <button class="week-btn active" onclick="switchWeek(1)">Week 1</button>
+            <button class="week-btn" onclick="switchWeek(2)">Week 2</button>
+            <button class="week-btn" onclick="switchWeek(3)">Week 3</button>
+            <button class="week-btn" onclick="switchWeek(4)">Week 4</button>
+        </div>
+
+        <!-- Week 1 Calendar -->
+        <div class="calendar-section" id="week-1">
+            <div class="week-title">Week 1: <!-- REPLACE: week1_dates --></div>
+
+            <div class="calendar-grid">
+                <!-- Header Row -->
+                <div class="day-label"></div>
+                <div class="platform-header instagram">📸 Instagram</div>
+                <div class="platform-header facebook">👍 Facebook</div>
+                <div class="platform-header email">✉️ Email</div>
+
+                <!-- Monday -->
+                <div class="day-label">Monday</div>
+                <div class="calendar-cell instagram">
+                    <div class="content-theme">Feature Dish</div>
+                    <div class="caption-idea">Showcase: Coq au Vin with description of preparation</div>
+                    <div class="hashtags">#FrenchCuisine #CoqAuVin #RestaurantLife</div>
+                </div>
+                <div class="calendar-cell facebook">
+                    <div class="content-theme">Weekly Special Announcement</div>
+                    <div class="caption-idea">Monday dinner special promotion with 10% off appetizers</div>
+                    <div class="hashtags">#WeeklySpecial #DiningDeals</div>
+                </div>
+                <div class="calendar-cell email">
+                    <div class="content-theme">Weekly Newsletter</div>
+                    <div class="caption-idea">This week's specials, upcoming events, chef's recommendations</div>
+                    <div class="hashtags">Subscribers only</div>
+                </div>
+
+                <!-- Tuesday -->
+                <div class="day-label">Tuesday</div>
+                <div class="calendar-cell instagram">
+                    <div class="content-theme">Behind the Kitchen</div>
+                    <div class="caption-idea">Chef prepping ingredients, spotlight on technique</div>
+                    <div class="hashtags">#BehindTheScenes #ChefLife #FoodPrep</div>
+                </div>
+                <div class="calendar-cell facebook">
+                    <div class="content-theme">Customer Feature</div>
+                    <div class="caption-idea">Share a customer testimonial or happy dining moment</div>
+                    <div class="hashtags">#CustomerLove #DiningExperience</div>
+                </div>
+                <div class="calendar-cell email">
+                    <div class="content-theme">Reservation Reminder</div>
+                    <div class="caption-idea">Reminder to book tables for upcoming weekend</div>
+                    <div class="hashtags">Subscribers only</div>
+                </div>
+
+                <!-- Wednesday -->
+                <div class="day-label">Wednesday</div>
+                <div class="calendar-cell instagram">
+                    <div class="content-theme">Wine Pairing Tip</div>
+                    <div class="caption-idea">Educational post on wine selection and food pairing</div>
+                    <div class="hashtags">#WineLovers #FoodPairing #WineTip</div>
+                </div>
+                <div class="calendar-cell facebook">
+                    <div class="content-theme">Event Promotion</div>
+                    <div class="caption-idea">Upcoming wine tasting or special dinner event</div>
+                    <div class="hashtags">#EventAlert #JoinUs</div>
+                </div>
+                <div class="calendar-cell email">
+                    <div class="content-theme">Seasonal Feature</div>
+                    <div class="caption-idea">Highlight seasonal ingredients in current menu</div>
+                    <div class="hashtags">Subscribers only</div>
+                </div>
+
+                <!-- Thursday -->
+                <div class="day-label">Thursday</div>
+                <div class="calendar-cell instagram">
+                    <div class="content-theme">Seasonal Ingredient</div>
+                    <div class="caption-idea">Local sourcing story - where ingredients come from</div>
+                    <div class="hashtags">#LocalFarming #SeasonalEating #SupportLocal</div>
+                </div>
+                <div class="calendar-cell facebook">
+                    <div class="content-theme">Happy Hour Teaser</div>
+                    <div class="caption-idea">Weekend happy hour specials - drinks and appetizers</div>
+                    <div class="hashtags">#HappyHour #WeekendSpecials</div>
+                </div>
+                <div class="calendar-cell email">
+                    <div class="content-theme">Loyalty Rewards</div>
+                    <div class="caption-idea">Exclusive member deals or birthday month specials</div>
+                    <div class="hashtags">Subscribers only</div>
+                </div>
+
+                <!-- Friday -->
+                <div class="day-label">Friday</div>
+                <div class="calendar-cell instagram">
+                    <div class="content-theme">Weekend Mood</div>
+                    <div class="caption-idea">Ambiance photo - table setting, candles, elegant presentation</div>
+                    <div class="hashtags">#FrenchAmbiance #DiningExperience #WeekendVibes</div>
+                </div>
+                <div class="calendar-cell facebook">
+                    <div class="content-theme">Menu Highlight</div>
+                    <div class="caption-idea">Feature a signature dish or new menu addition</div>
+                    <div class="hashtags">#MenuHighlight #TryOurLatest</div>
+                </div>
+                <div class="calendar-cell email">
+                    <div class="content-theme">Chef's Recommendation</div>
+                    <div class="caption-idea">Personal note from chef about weekend specials</div>
+                    <div class="hashtags">Subscribers only</div>
+                </div>
+
+                <!-- Saturday -->
+                <div class="day-label">Saturday</div>
+                <div class="calendar-cell instagram">
+                    <div class="content-theme">Plating Artistry</div>
+                    <div class="caption-idea">Close-up of beautifully plated dish highlighting presentation</div>
+                    <div class="hashtags">#FoodPhotography #PlatingArt #FoodArt</div>
+                </div>
+                <div class="calendar-cell facebook">
+                    <div class="content-theme">Live Saturday Service</div>
+                    <div class="caption-idea">Live updates or stories from Saturday dinner service</div>
+                    <div class="hashtags">#SaturdayNight #DiningOut #FreshMoment</div>
+                </div>
+                <div class="calendar-cell email">
+                    <div class="content-theme">Sunday Brunch Invite</div>
+                    <div class="caption-idea">Upcoming Sunday brunch menu and reservation link</div>
+                    <div class="hashtags">Subscribers only</div>
+                </div>
+
+                <!-- Sunday -->
+                <div class="day-label">Sunday</div>
+                <div class="calendar-cell instagram">
+                    <div class="content-theme">Week Recap</div>
+                    <div class="caption-idea">Highlight of the week - best moments, grateful thank you</div>
+                    <div class="hashtags">#SundayReflection #ThankYou #CouqleyFamily</div>
+                </div>
+                <div class="calendar-cell facebook">
+                    <div class="content-theme">Community Engagement</div>
+                    <div class="caption-idea">Ask followers about favorite dishes or dining experiences</div>
+                    <div class="hashtags">#CommunityChat #YourFavoriteDish</div>
+                </div>
+                <div class="calendar-cell email">
+                    <div class="content-theme">Weekly Closing</div>
+                    <div class="caption-idea">Summary of week, thank you message, next week preview</div>
+                    <div class="hashtags">Subscribers only</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 2 Calendar -->
+        <div class="calendar-section" id="week-2" style="display: none;">
+            <div class="week-title">Week 2: <!-- REPLACE: week2_dates --></div>
+            <p style="color: #999; padding: 1rem 0;">Content calendar for Week 2 follows similar structure with themed variations based on current promotions and seasonal focus.</p>
+        </div>
+
+        <!-- Week 3 Calendar -->
+        <div class="calendar-section" id="week-3" style="display: none;">
+            <div class="week-title">Week 3: <!-- REPLACE: week3_dates --></div>
+            <p style="color: #999; padding: 1rem 0;">Content calendar for Week 3 with updated themes and campaign focus.</p>
+        </div>
+
+        <!-- Week 4 Calendar -->
+        <div class="calendar-section" id="week-4" style="display: none;">
+            <div class="week-title">Week 4: <!-- REPLACE: week4_dates --></div>
+            <p style="color: #999; padding: 1rem 0;">Content calendar for Week 4 with month-end reflections and next month preview.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Generated: <!-- REPLACE: generation_date --> | Couqley French Bistro Content Strategy</p>
+    </footer>
+
+    <script>
+        function switchWeek(weekNumber) {
+            // Hide all weeks
+            document.getElementById('week-1').style.display = 'none';
+            document.getElementById('week-2').style.display = 'none';
+            document.getElementById('week-3').style.display = 'none';
+            document.getElementById('week-4').style.display = 'none';
+
+            // Show selected week
+            document.getElementById('week-' + weekNumber).style.display = 'block';
+
+            // Update active button
+            const buttons = document.querySelectorAll('.week-btn');
+            buttons.forEach((btn, index) => {
+                if (index + 1 === weekNumber) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Scroll to calendar
+            document.querySelector('.calendar-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

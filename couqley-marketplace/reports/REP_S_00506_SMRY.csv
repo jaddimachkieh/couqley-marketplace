@@ -1,0 +1,391 @@
+﻿Couqley Gemayzeh,,,,,,,,,,,,,,,,,
+Menu Engineering WorkSheet,,,,,,,,,,,,,,,,,
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 1 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+ Category : Restaurant Menu,,,,,,,,,,,,,,,,,
+Group: Apero,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+ALMAZA AP,2.00,0.01,%,0.92,3.15,,2.24,1.83,6.31,4.47,3.15,Low,Low,,Dog,,Tables
+Carafe Bordeaux Superieur AP,2.00,0.01,%,4.69,13.51,,8.83,9.38,27.03,17.65,13.51,High,Low,,Challenge,,Tables
+Gin Basil AP,6.00,0.02,%,0.41,5.41,,5.00,2.46,32.43,29.97,5.41,Low,Low,,Dog,,Tables
+Margarita AP,7.00,0.03,%,1.79,5.41,,3.61,12.56,37.84,25.27,5.41,Low,Low,,Dog,,Tables
+Martini Prosecco GLS AP,2.00,0.01,%,0.67,4.95,,4.29,1.33,9.91,8.58,4.95,Low,Low,,Dog,,Tables
+Group: Beers,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Almaza,78.00,0.31,%,0.92,4.50,,3.59,71.50,351.38,279.88,4.50,Low,Low,,Dog,,Tables
+Almaza Light,24.00,0.10,%,0.92,4.50,,3.58,22.08,108.12,86.04,4.50,Low,Low,,Dog,,Tables
+Draft Elmir IPA,1.00,0.00,%,0.94,7.66,,6.72,0.94,7.66,6.72,7.66,High,Low,,Challenge,,Tables
+Elmir IPA,10.00,0.04,%,1.80,7.66,,5.86,18.00,76.58,58.58,7.66,Low,Low,,Dog,,Tables
+Elmir Pilsner,4.00,0.02,%,1.80,5.41,,3.61,7.20,21.62,14.42,5.41,Low,Low,,Dog,,Tables
+Group: Boeuf,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Bistro Burger,179.00,0.72,%,5.18,17.12,,11.94,927.30,"3,063.94","2,136.64",17.12,High,High,,Star,,Tables
+Cote De Boeuf N,45.00,0.18,%,44.45,117.12,,72.67,"2,000.08","5,270.27","3,270.18",117.12,High,Low,,Challenge,,Tables
+Entrecote MB2,116.00,0.46,%,17.48,46.85,,29.37,"2,027.32","5,434.25","3,406.93",46.85,High,High,,Star,,Tables
+Filet De Boeuf Prime,189.00,0.76,%,13.01,42.34,,29.33,"2,459.15","8,002.67","5,543.52",42.34,High,High,,Star,,Tables
+Large Couqley Steak Frites,"1,058.00",4.23,%,8.35,32.88,,24.53,"8,836.18","34,790.20","25,954.02",32.88,High,High,,Star,,Tables
+Large Mushroom Steak Frites,115.00,0.46,%,7.86,35.14,,27.28,903.46,"4,040.53","3,137.07",35.14,High,High,,Star,,Tables
+Regular Couqley Steak Frites,"1,852.00",7.40,%,6.35,25.38,,19.03,"11,753.74","46,086.32","34,332.59",26.13,High,High,,Star,,Tables
+Regular Mushroom Steak Frites,215.00,0.86,%,5.81,28.38,,22.57,"1,249.30","5,704.01","4,454.71",28.38,High,High,,Star,,Tables
+Steak Tartare,85.00,0.34,%,4.97,19.82,,14.85,422.21,"1,684.70","1,262.49",19.82,High,High,,Star,,Tables
+Truffle Brie Burger,88.00,0.35,%,6.82,22.52,,15.70,600.04,"1,982.02","1,381.98",22.52,High,High,,Star,,Tables
+Group: By the Glass & Carafe,,,,,,,,,,,,,,,,,
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 2 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Menu : Tables,,,,,,,,,,,,,,,,,
+Carafe Blanc de Blanc,29.00,0.12,%,2.73,13.51,,10.78,79.17,391.91,312.74,13.51,High,Low,,Challenge,,Tables
+Carafe Bordeaux Superieur,62.00,0.25,%,4.69,22.52,,17.84,290.62,"1,396.43","1,105.80",22.52,High,Low,,Challenge,,Tables
+Carafe Entre 2 Mers White,9.00,0.04,%,8.11,24.32,,16.21,72.99,218.92,145.93,24.32,High,Low,,Challenge,,Tables
+Carafe House Wine Red,82.75,0.33,%,3.33,16.22,,12.88,275.83,"1,341.88","1,066.05",16.22,High,Low,,Challenge,,Tables
+Carafe Kefraya Myst,12.00,0.05,%,3.19,12.61,,9.42,38.34,151.36,113.02,12.61,High,Low,,Challenge,,Tables
+Carafe Reve Blanc,9.00,0.04,%,2.06,13.51,,11.45,18.56,121.63,103.06,13.51,High,Low,,Challenge,,Tables
+Glass Blanc de Blanc,125.00,0.50,%,0.71,6.31,,5.60,88.72,788.28,699.56,6.31,Low,High,,Workhorse,,Tables
+Glass Bordeaux Superieur,252.00,1.01,%,1.22,8.18,,6.96,307.12,"2,043.22","1,736.09",8.11,High,High,,Star,,Tables
+Glass Entre Deux Mers White,48.00,0.19,%,2.11,8.11,,6.00,101.21,389.18,287.97,8.11,Low,Low,,Dog,,Tables
+Glass House Wine Red,313.00,1.25,%,0.87,7.21,,6.34,271.26,"2,255.80","1,984.53",7.21,Low,High,,Workhorse,,Tables
+Glass Kefraya Myst,34.00,0.14,%,0.83,5.41,,4.57,28.24,183.78,155.54,5.41,Low,Low,,Dog,,Tables
+Glass Reve Blanc,25.00,0.10,%,0.71,6.31,,5.59,17.88,157.65,139.78,6.31,Low,Low,,Dog,,Tables
+Glass Sparkling Wine,60.00,0.24,%,1.44,7.21,,5.76,86.66,432.42,345.76,7.21,Low,Low,,Dog,,Tables
+Group: Cocktails,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Amaretto Sour,4.00,0.02,%,2.37,9.91,,7.54,9.46,39.64,30.18,9.91,High,Low,,Challenge,,Tables
+Aperol De Provence,2.00,0.01,%,1.85,11.71,,9.86,3.71,23.42,19.72,11.71,High,Low,,Challenge,,Tables
+Aperol Spritz,3.00,0.01,%,0.00,11.71,,11.71,0.00,35.14,35.14,11.71,High,Low,,Challenge,,Tables
+Bloody Mary Vodka,7.00,0.03,%,0.99,9.91,,8.92,6.93,69.37,62.44,9.91,High,Low,,Challenge,,Tables
+Boulevardier,2.00,0.01,%,1.44,8.11,,6.66,2.89,16.22,13.33,8.11,High,Low,,Challenge,,Tables
+Cosmopolitan,2.00,0.01,%,2.01,9.91,,7.90,4.01,19.82,15.81,9.91,High,Low,,Challenge,,Tables
+Espresso Martini,3.00,0.01,%,0.97,9.91,,8.94,2.91,29.73,26.82,9.91,High,Low,,Challenge,,Tables
+French 75,2.00,0.01,%,1.20,8.11,,6.91,2.40,16.22,13.82,8.11,High,Low,,Challenge,,Tables
+Gin Basil,37.00,0.15,%,0.41,9.91,,9.50,15.16,366.67,351.51,9.91,High,Low,,Challenge,,Tables
+Gin Martini,1.00,0.00,%,1.06,9.91,,8.85,1.06,9.91,8.85,9.91,High,Low,,Challenge,,Tables
+Granny Smith Vodka,1.00,0.00,%,0.57,9.91,,9.34,0.57,9.91,9.34,9.91,High,Low,,Challenge,,Tables
+Hugo,4.00,0.02,%,2.57,11.71,,9.14,10.27,46.85,36.58,11.71,High,Low,,Challenge,,Tables
+Margarita,23.00,0.09,%,1.79,9.91,,8.11,41.28,227.93,186.64,9.91,High,Low,,Challenge,,Tables
+Mojito Rum,5.00,0.02,%,0.69,9.91,,9.22,3.45,49.55,46.10,9.91,High,Low,,Challenge,,Tables
+Mules,2.00,0.01,%,1.20,9.91,,8.71,2.41,19.82,17.41,9.91,High,Low,,Challenge,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 3 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Negroni,9.00,0.04,%,1.35,8.11,,6.75,12.18,72.97,60.79,8.11,High,Low,,Challenge,,Tables
+Not A Negroni,2.00,0.01,%,2.09,11.71,,9.62,4.18,23.42,19.24,11.71,High,Low,,Challenge,,Tables
+Off the menu Cocktail,4.00,0.02,%,0.00,9.01,,9.01,0.00,36.04,36.04,9.01,High,Low,,Challenge,,Tables
+Old Fashioned,7.00,0.03,%,1.70,10.81,,9.11,11.92,75.68,63.75,10.81,High,Low,,Challenge,,Tables
+Paloma Tequila,5.00,0.02,%,2.58,10.81,,8.23,12.92,54.05,41.13,10.81,High,Low,,Challenge,,Tables
+Passion Fruit Martini,11.00,0.04,%,1.16,10.81,,9.65,12.72,118.92,106.20,10.81,High,Low,,Challenge,,Tables
+Rusty Nail,2.00,0.01,%,1.46,8.11,,6.64,2.93,16.22,13.29,8.11,High,Low,,Challenge,,Tables
+Spritz,7.00,0.03,%,3.54,11.71,,8.17,24.80,81.98,57.18,11.71,High,Low,,Challenge,,Tables
+Tipperary 1916,4.00,0.02,%,1.32,9.01,,7.69,5.28,36.04,30.76,9.01,High,Low,,Challenge,,Tables
+Whisky Sour,2.00,0.01,%,0.87,9.91,,9.04,1.73,19.82,18.09,9.91,High,Low,,Challenge,,Tables
+Group: Cold Drinks,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+7up,61.00,0.24,%,0.49,2.70,,2.21,30.20,164.88,134.69,2.70,Low,Low,,Dog,,Tables
+Diet 7up,148.00,0.59,%,0.49,2.70,,2.21,72.52,400.03,327.51,2.70,Low,High,,Workhorse,,Tables
+Diet Pepsi,596.00,2.38,%,0.49,2.70,,2.21,295.02,"1,605.47","1,310.45",2.70,Low,High,,Workhorse,,Tables
+Ginger Ale,6.00,0.02,%,0.69,2.70,,2.01,4.14,16.22,12.08,2.70,Low,Low,,Dog,,Tables
+Iced Tea,76.00,0.30,%,0.54,2.70,,2.16,41.04,205.42,164.38,2.70,Low,Low,,Dog,,Tables
+Lemonade,40.00,0.16,%,0.27,3.15,,2.88,10.86,126.12,115.26,3.15,Low,Low,,Dog,,Tables
+Minted Frozen Lemonade,7.00,0.03,%,0.41,4.50,,4.10,2.86,31.53,28.68,4.50,Low,Low,,Dog,,Tables
+Non Alcoholic Cocktail,6.00,0.02,%,0.00,5.41,,5.41,0.00,32.43,32.43,5.41,Low,Low,,Dog,,Tables
+Orange Juice,45.00,0.18,%,1.14,3.60,,2.46,51.42,162.17,110.75,3.60,Low,Low,,Dog,,Tables
+Pepsi,183.00,0.73,%,0.49,2.70,,2.21,90.58,494.63,404.04,2.70,Low,High,,Workhorse,,Tables
+Pepsi Zero,61.00,0.24,%,0.49,2.70,,2.21,29.89,164.87,134.98,2.70,Low,Low,,Dog,,Tables
+San Pellegrino Large,346.00,1.38,%,1.35,5.41,,4.06,467.10,"1,870.13","1,403.03",5.41,Low,High,,Workhorse,,Tables
+San Pellegrino Small,230.00,0.92,%,0.77,2.70,,1.94,176.33,621.67,445.34,2.70,Low,High,,Workhorse,,Tables
+Soda,3.00,0.01,%,0.69,2.70,,2.01,2.07,8.11,6.04,2.70,Low,Low,,Dog,,Tables
+Tonic,9.00,0.04,%,0.69,2.70,,2.01,6.21,24.33,18.12,2.70,Low,Low,,Dog,,Tables
+Water Large,"1,126.00",4.50,%,0.67,3.60,,2.94,750.66,"4,058.09","3,307.43",3.60,Low,High,,Workhorse,,Tables
+Group: Dessert,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Creme Brulee,145.00,0.58,%,2.01,7.21,,5.20,291.25,"1,045.02",753.77,7.21,Low,High,,Workhorse,,Tables
+Fondant Au Chocolat,143.00,0.57,%,2.59,8.56,,5.97,370.73,"1,223.93",853.19,8.56,Low,High,,Workhorse,,Tables
+Pain Perdu,592.00,2.37,%,2.91,9.91,,7.00,"1,722.07","5,866.72","4,144.65",9.91,High,High,,Star,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 4 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Sorbets And Ice Cream,114.00,0.46,%,0.00,2.70,,2.70,0.00,308.12,308.12,2.70,Low,High,,Workhorse,,Tables
+Tarte Du Jour,40.00,0.16,%,3.08,8.56,,5.48,123.32,342.35,219.03,8.56,Low,Low,,Dog,,Tables
+Group: Formulas,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Baron Carafe MONDAY,33.00,0.13,%,3.67,0.00,,-3.67,121.00,0.00,-121.00,0.00,Low,Low,,Dog,,Tables
+Creme Brulee MONDAY Formula,4.00,0.02,%,2.01,0.00,,-2.01,8.03,0.00,-8.03,0.00,Low,Low,,Dog,,Tables
+Extra Large Portion,87.00,0.35,%,2.01,6.76,,4.75,174.46,587.86,413.40,6.76,Low,High,,Workhorse,,Tables
+Fondant Au Chocolat MONDAY Formula,12.00,0.05,%,2.59,0.00,,-2.59,31.11,0.00,-31.11,0.00,Low,Low,,Dog,,Tables
+Pain Perdu MONDAY Formula,32.00,0.13,%,2.87,0.00,,-2.87,91.70,0.00,-91.70,0.00,Low,Low,,Dog,,Tables
+Petit Couvent Carafe MONDAY,6.00,0.02,%,2.25,0.00,,-2.25,13.50,0.00,-13.50,0.00,Low,Low,,Dog,,Tables
+Set Menu 60$,26.00,0.10,%,0.00,54.05,,54.05,0.00,"1,405.40","1,405.40",54.05,High,Low,,Challenge,,Tables
+Steak Frites Monday's Formula,49.00,0.20,%,12.69,59.46,,46.77,621.96,"2,913.50","2,291.55",59.46,High,Low,,Challenge,,Tables
+Toters Bundle,3.00,0.01,%,0.00,63.06,,63.06,0.00,189.19,189.19,63.06,High,Low,,Challenge,,Tables
+Group: Gin/Vodka,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Gordans Gls,2.00,0.01,%,0.65,7.21,,6.56,1.30,14.41,13.11,7.21,High,Low,,Challenge,,Tables
+Grey Goose Gls,10.00,0.04,%,1.80,16.22,,14.42,18.00,162.16,144.16,16.22,High,Low,,Challenge,,Tables
+Hendrick's Gls,12.00,0.05,%,1.89,10.81,,8.93,22.63,129.73,107.10,10.81,High,Low,,Challenge,,Tables
+Ketel One Gls,1.00,0.00,%,1.50,9.91,,8.41,1.50,9.91,8.41,9.91,High,Low,,Challenge,,Tables
+Monkey 47 Gls,4.50,0.02,%,6.08,18.02,,11.94,27.37,81.08,53.71,18.02,High,Low,,Challenge,,Tables
+Russian Standard Gls,1.00,0.00,%,0.51,7.21,,6.69,0.51,7.21,6.69,7.21,High,Low,,Challenge,,Tables
+Group: Hot Drinks,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Cafe Blanc,42.00,0.17,%,0.06,1.80,,1.74,2.57,75.68,73.11,1.80,Low,Low,,Dog,,Tables
+Cappuccino,23.00,0.09,%,0.35,3.15,,2.80,8.15,72.52,64.37,3.15,Low,Low,,Dog,,Tables
+Espresso Decaf,20.00,0.08,%,0.36,2.25,,1.89,7.18,45.04,37.86,2.25,Low,Low,,Dog,,Tables
+Espresso Doppio,41.00,0.16,%,0.68,3.60,,2.93,27.80,147.75,119.96,3.60,Low,Low,,Dog,,Tables
+Espresso Intenso,184.00,0.74,%,0.34,2.25,,1.91,62.38,414.42,352.04,2.25,Low,High,,Workhorse,,Tables
+Hot Chocolate,9.00,0.04,%,0.06,3.15,,3.09,0.58,28.38,27.80,3.15,Low,Low,,Dog,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 5 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Latte,9.00,0.04,%,0.35,3.15,,2.80,3.19,28.38,25.19,3.15,Low,Low,,Dog,,Tables
+Tea,62.00,0.25,%,0.22,1.80,,1.58,13.64,111.72,98.08,1.80,Low,Low,,Dog,,Tables
+Group: Kids Menu,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Crispy Chicken Strips,29.00,0.12,%,2.41,9.01,,6.60,69.83,261.26,191.43,9.01,High,Low,,Challenge,,Tables
+Free Scoop Of Ice Cream,23.00,0.09,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Kids Bistro Burger,14.00,0.06,%,4.49,13.96,,9.48,62.82,195.50,132.68,13.96,High,Low,,Challenge,,Tables
+Kids Couqley’s Steak Frites,38.00,0.15,%,4.34,13.51,,9.17,165.03,513.52,348.49,13.51,High,Low,,Challenge,,Tables
+Kids Penne Arrabbiata,5.00,0.02,%,2.08,6.08,,4.00,10.38,30.41,20.02,6.08,Low,Low,,Dog,,Tables
+Kids Poulet Frites,7.00,0.03,%,3.42,10.81,,7.39,23.96,75.68,51.72,10.81,High,Low,,Challenge,,Tables
+Kids Tagliatelle Au Poulet,10.00,0.04,%,3.37,11.26,,7.90,33.66,112.61,78.95,11.26,High,Low,,Challenge,,Tables
+Group: Ladies Night,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Couqley Steak Regular  Frites OH,38.00,0.15,%,6.35,28.83,,22.48,241.17,"1,095.50",854.33,28.83,High,Low,,Challenge,,Tables
+Fish And Chips OH,1.00,0.00,%,3.99,28.83,,24.84,3.99,28.83,24.84,28.83,High,Low,,Challenge,,Tables
+Pave De Saumon OH,1.00,0.00,%,11.06,28.83,,17.77,11.06,28.83,17.77,28.83,High,Low,,Challenge,,Tables
+Poulet Frites OH,2.00,0.01,%,5.72,28.83,,23.11,11.43,57.66,46.23,28.83,High,Low,,Challenge,,Tables
+Regular Mushroom Steak Frites OH,2.00,0.01,%,5.86,28.83,,22.97,11.72,57.66,45.94,28.83,High,Low,,Challenge,,Tables
+Truffle Brie Burger OH,1.00,0.00,%,6.82,28.83,,22.01,6.82,28.83,22.01,28.83,High,Low,,Challenge,,Tables
+Group: Les Sauces,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Bearnaise Sauce,65.00,0.26,%,1.37,0.19,,-1.18,88.96,35.14,-53.82,2.70,Low,Low,,Dog,,Tables
+Bordelaise Sauce,1.00,0.00,%,0.57,0.00,,-0.57,0.57,0.00,-0.57,2.70,Low,Low,,Dog,,Tables
+Couqley Sauce (Steak Frite),604.00,2.41,%,1.09,1.20,,0.11,660.03,"1,067.64",407.61,2.70,Low,High,,Workhorse,,Tables
+Mushroom Sauce,183.00,0.73,%,0.69,1.16,,0.47,126.68,227.04,100.37,2.70,Low,High,,Workhorse,,Tables
+Roquefort Sauce,25.00,0.10,%,1.15,2.03,,0.88,28.74,48.65,19.91,2.70,Low,Low,,Dog,,Tables
+Sauces Aux Herbes (Poulet Frites),48.00,0.19,%,1.12,1.62,,0.51,53.55,91.90,38.35,2.70,Low,Low,,Dog,,Tables
+Group: Modifier,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Add Cheddar Cheese Slice,8.00,0.03,%,0.55,1.80,,1.25,4.42,14.41,10.00,1.80,Low,Low,,Dog,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 6 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Add Grenadine,4.00,0.02,%,0.33,0.90,,0.57,1.31,3.60,2.30,0.90,Low,Low,,Dog,,Tables
+Add Mexican Beer,23.00,0.09,%,0.34,0.90,,0.56,7.89,20.72,12.84,0.90,Low,Low,,Dog,,Tables
+Add Truffle Mayo,4.00,0.02,%,0.50,3.60,,3.10,2.00,14.42,12.41,3.60,Low,Low,,Dog,,Tables
+Boule Chocolat,34.00,0.14,%,0.80,0.00,,-0.80,27.20,0.00,-27.20,2.25,Low,Low,,Dog,,Tables
+Boule Citron,36.00,0.14,%,0.50,0.00,,-0.50,18.00,0.00,-18.00,2.25,Low,Low,,Dog,,Tables
+Boule Fraise,15.00,0.06,%,0.55,0.00,,-0.55,8.25,0.00,-8.25,2.25,Low,Low,,Dog,,Tables
+Boule Vanille,52.00,0.21,%,0.70,0.00,,-0.70,36.40,0.00,-36.40,2.25,Low,Low,,Dog,,Tables
+Creamy,1.00,0.00,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Crispy,80.00,0.32,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Cuit,38.00,0.15,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Cut in Half,77.00,0.31,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Extra 1$,35.00,0.14,%,0.00,0.90,,0.90,0.00,31.53,31.53,0.90,Low,Low,,Dog,,Tables
+Extra Caesar Sauce,4.00,0.02,%,0.58,2.25,,1.67,2.31,9.01,6.70,2.25,Low,Low,,Dog,,Tables
+Extra Caramel,13.00,0.05,%,0.35,2.25,,1.90,4.58,29.28,24.69,2.25,Low,Low,,Dog,,Tables
+Extra Chevre Spring Rolls,9.00,0.04,%,1.07,3.60,,2.53,9.63,32.43,22.80,3.60,Low,Low,,Dog,,Tables
+Extra Chicken,45.00,0.18,%,1.28,3.60,,2.33,57.46,162.18,104.72,3.60,Low,Low,,Dog,,Tables
+Extra Fresh Goat Cheese,0.00,0.00,%,0.61,1.80,,1.19,0.00,0.00,0.00,1.80,Low,Low,,Dog,,Tables
+Extra Fries,106.00,0.42,%,0.92,0.00,,-0.92,97.94,0.00,-97.94,0.00,Low,High,,Workhorse,,Tables
+Extra Full Chicken Breast,1.00,0.00,%,2.30,7.21,,4.91,2.30,7.21,4.91,7.21,Low,Low,,Dog,,Tables
+Extra Grilled Potatoes & Vegetables,30.00,0.12,%,0.58,0.00,,-0.58,17.49,0.00,-17.49,0.00,Low,Low,,Dog,,Tables
+Extra Parmesan,9.00,0.04,%,1.35,0.00,,-1.35,12.13,0.00,-12.13,0.00,Low,Low,,Dog,,Tables
+Extra Shrimp,6.00,0.02,%,1.80,5.41,,3.61,10.80,32.43,21.63,5.41,Low,Low,,Dog,,Tables
+Extra Side Salad,92.00,0.37,%,0.11,0.00,,-0.11,9.79,0.00,-9.79,0.00,Low,High,,Workhorse,,Tables
+Extra Tagliatelle,15.00,0.06,%,1.12,8.11,,6.98,16.88,121.62,104.75,8.11,High,Low,,Challenge,,Tables
+Extra Tartare Sauce,5.00,0.02,%,0.27,0.00,,-0.27,1.35,0.00,-1.35,0.00,Low,Low,,Dog,,Tables
+Extra Truffle Oil,1.00,0.00,%,0.63,1.80,,1.18,0.63,1.80,1.18,1.80,Low,Low,,Dog,,Tables
+Extra Vegetables,113.00,0.45,%,0.58,1.80,,1.22,65.89,203.62,137.73,1.80,Low,High,,Workhorse,,Tables
+Medium,948.00,3.79,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Medium Rare,594.00,2.37,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Medium Well,"1,707.00",6.82,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Mi Cuit,25.00,0.10,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+No Cheddar Cheese,11.00,0.04,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 7 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+No Cocktail Sauce,8.00,0.03,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+No Frite,76.00,0.30,%,-0.92,0.00,,0.92,-70.22,0.00,70.22,0.00,Low,Low,,Dog,,Tables
+No Lettuce,10.00,0.04,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+No Onion,27.00,0.11,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+No Pickles,33.00,0.13,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+No Tomato,22.00,0.09,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Normal,34.00,0.14,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Not Spicy,29.00,0.12,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Nuts,126.00,0.50,%,0.25,0.00,,-0.25,31.75,0.00,-31.75,0.00,Low,High,,Workhorse,,Tables
+Rare,89.00,0.36,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Replace with Rice,1.00,0.00,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Sauce on the side,303.00,1.21,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Spicy,69.00,0.28,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Tarte aux Fraises,30.00,0.12,%,2.63,0.00,,-2.63,78.96,0.00,-78.96,0.00,Low,Low,,Dog,,Tables
+Tarte aux Noix,9.00,0.04,%,2.30,0.00,,-2.30,20.68,0.00,-20.68,0.00,Low,Low,,Dog,,Tables
+Well Done,483.00,1.93,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Wet Wipes,187.00,0.75,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+White Sauce Only,8.00,0.03,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,Low,,Dog,,Tables
+Group: Plats Principaux,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Crispy Chicken Burger,1.00,0.00,%,2.95,10.81,,7.86,2.95,10.81,7.86,10.81,High,Low,,Challenge,,Tables
+Duck Confit,89.00,0.36,%,9.93,28.83,,18.90,884.07,"2,565.78","1,681.71",28.83,High,High,,Star,,Tables
+Fish And Chips,40.00,0.16,%,3.99,23.42,,19.43,159.63,936.92,777.29,23.42,High,Low,,Challenge,,Tables
+Grilled Shrimp Platter,25.00,0.10,%,10.58,33.33,,22.75,264.54,833.33,568.79,33.33,High,Low,,Challenge,,Tables
+Moules Frites,65.00,0.26,%,14.81,36.04,,21.22,962.91,"2,342.34","1,379.43",36.04,High,Low,,Challenge,,Tables
+Pave De Saumon,64.00,0.26,%,11.06,30.63,,19.57,707.90,"1,960.38","1,252.48",30.63,High,Low,,Challenge,,Tables
+Penne Arrabbiata,45.00,0.18,%,3.29,10.81,,7.52,148.04,486.50,338.45,10.81,High,Low,,Challenge,,Tables
+Poulet Frites,258.00,1.03,%,5.72,17.57,,11.85,"1,474.55","4,497.38","3,022.83",17.57,High,High,,Star,,Tables
+Sea Bass En Papillote,62.00,0.25,%,10.68,29.73,,19.05,662.12,"1,843.25","1,181.14",29.73,High,Low,,Challenge,,Tables
+Shrimp Roll,24.00,0.10,%,5.14,16.22,,11.08,123.32,389.18,265.86,16.22,High,Low,,Challenge,,Tables
+Tagliatelle Au Poulet,67.00,0.27,%,5.25,17.57,,12.32,351.52,"1,177.05",825.53,17.57,High,Low,,Challenge,,Tables
+Group: Prosecco,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 8 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Martini Prosecco,6.00,0.02,%,8.33,25.23,,16.89,49.99,151.35,101.35,25.23,High,Low,,Challenge,,Tables
+Group: Red Wine - Europe,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Civetta Chianti DOCG,1.00,0.00,%,15.86,55.86,,40.00,15.86,55.86,40.00,55.86,High,Low,,Challenge,,Tables
+I Heart Merlot 2023,2.00,0.01,%,9.01,31.53,,22.52,18.02,63.06,45.04,31.53,High,Low,,Challenge,,Tables
+Linteo Negroamaro Salento,2.00,0.01,%,12.61,44.14,,31.53,25.22,88.29,63.07,44.14,High,Low,,Challenge,,Tables
+Ribera Del Duero,3.00,0.01,%,20.18,68.47,,48.29,60.54,207.21,146.67,70.27,High,Low,,Challenge,,Tables
+Victoria Tournon Mathilda,3.00,0.01,%,18.92,66.67,,47.75,56.76,200.00,143.24,66.67,High,Low,,Challenge,,Tables
+Group: Red Wine - France,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Chateau de France,1.00,0.00,%,39.73,118.92,,79.19,39.73,118.92,79.19,118.92,High,Low,,Challenge,,Tables
+Chateau Jean Blanc Saint Emilion Grand Cru 2022,0.00,0.00,%,34.89,104.50,,69.61,0.00,0.00,0.00,104.50,Low,Low,,Dog,,Tables
+Clou Du Pin Bordeaux Superieur,10.00,0.04,%,9.38,42.34,,32.97,93.75,423.42,329.67,42.34,High,Low,,Challenge,,Tables
+Cote Rotie Becasse 2020,0.00,0.00,%,87.84,219.82,,131.98,0.00,0.00,0.00,219.82,Low,Low,,Dog,,Tables
+CÔTES DU RHÔNE aprices d’Antoine 2023,9.00,0.04,%,14.52,50.45,,35.93,130.68,454.05,323.37,50.45,High,Low,,Challenge,,Tables
+Gigondas 2015,1.00,0.00,%,23.96,72.07,,48.11,23.96,72.07,48.11,72.07,High,Low,,Challenge,,Tables
+GIGONDAS M Chapoutier Les Jocasses 2021 Rhone,2.00,0.01,%,32.43,97.30,,64.87,64.86,194.59,129.73,97.30,High,Low,,Challenge,,Tables
+"HAUT MÉDOC  Château Lamothe Bergeron 2016, Bordeaux",5.00,0.02,%,24.32,72.97,,48.65,121.60,364.87,243.27,72.97,High,Low,,Challenge,,Tables
+Haut-Medoc de Giscours,1.00,0.00,%,44.62,133.33,,88.71,44.62,133.33,88.71,133.33,High,Low,,Challenge,,Tables
+"Margaux, Chateau La Gurgue",2.00,0.01,%,32.43,106.31,,73.88,64.86,212.61,147.75,106.31,High,Low,,Challenge,,Tables
+Marjosse Bordeaux Superieur,0.00,0.00,%,20.90,69.37,,48.47,0.00,0.00,0.00,69.37,Low,Low,,Dog,,Tables
+PAYS D’OC Oriolus Pinot Noir Cheval Quancard 2023,1.00,0.00,%,16.22,56.76,,40.54,16.22,56.76,40.54,56.76,High,Low,,Challenge,,Tables
+"Pinot Noir, Ropiteau",1.00,0.00,%,22.00,72.97,,50.97,22.00,72.97,50.97,72.97,High,Low,,Challenge,,Tables
+Vielle Ferme Beaucastel 2023,3.00,0.01,%,8.63,29.73,,21.10,25.89,89.19,63.30,29.73,High,Low,,Challenge,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 9 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Group: Red Wine - Lebanon,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Altitudes Ixsir,47.00,0.19,%,9.68,29.73,,20.05,454.96,"1,397.31",942.35,29.73,High,Low,,Challenge,,Tables
+Chateau Marsyas Red,10.00,0.04,%,22.17,67.57,,45.40,221.67,675.68,454.01,67.57,High,Low,,Challenge,,Tables
+Couqley By Iris Domain,14.00,0.06,%,11.00,32.43,,21.43,154.00,356.75,202.75,32.43,High,Low,,Challenge,,Tables
+Hochar,7.00,0.03,%,16.00,46.85,,30.85,112.00,327.93,215.93,46.85,High,Low,,Challenge,,Tables
+Ksara Cabernet Sauvignon,18.00,0.07,%,10.83,31.53,,20.70,194.94,567.58,372.64,31.53,High,Low,,Challenge,,Tables
+Levantine Rouge 2022,5.00,0.02,%,12.86,40.54,,27.68,64.30,202.71,138.41,40.54,High,Low,,Challenge,,Tables
+Litaj,2.00,0.01,%,14.05,41.44,,27.39,28.11,82.88,54.77,41.44,High,Low,,Challenge,,Tables
+Phoenician Gate,4.00,0.02,%,12.79,39.64,,26.85,51.16,158.56,107.40,39.64,High,Low,,Challenge,,Tables
+Group: Rose Wine,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Myst Rose,5.50,0.02,%,4.79,17.12,,12.32,26.36,94.14,67.79,17.12,High,Low,,Challenge,,Tables
+Group: Salades,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Artichaut Salad,108.00,0.43,%,1.79,13.51,,11.72,193.64,"1,459.51","1,265.87",13.51,High,High,,Star,,Tables
+Caesar Salad,64.00,0.26,%,1.53,10.81,,9.28,97.77,691.90,594.14,10.81,High,Low,,Challenge,,Tables
+Farmers Market,69.00,0.28,%,3.56,13.51,,9.96,245.31,932.46,687.15,13.51,High,Low,,Challenge,,Tables
+Grilled Calamar Salad,101.00,0.40,%,8.79,15.32,,6.53,887.29,"1,546.82",659.53,15.32,High,High,,Star,,Tables
+Salade De Chevre Chaud,197.00,0.79,%,2.13,12.61,,10.48,419.39,"2,484.75","2,065.37",12.61,High,High,,Star,,Tables
+Salade Endives Roquefort,68.00,0.27,%,5.17,16.22,,11.04,351.87,"1,102.69",750.82,16.22,High,Low,,Challenge,,Tables
+Group: Side Orders,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Baguette Brown,685.00,2.74,%,1.78,0.00,,-1.78,"1,221.58",0.00,"-1,221.58",0.00,Low,High,,Workhorse,,Tables
+Bol De Riz,11.00,0.04,%,2.20,5.41,,3.21,24.17,59.46,35.29,5.41,Low,Low,,Dog,,Tables
+Bread And Butter,47.00,0.19,%,0.00,2.70,,2.70,0.00,127.04,127.04,2.70,Low,Low,,Dog,,Tables
+Butter,26.00,0.10,%,11.78,0.00,,-11.78,306.22,0.00,-306.22,0.00,Low,Low,,Dog,,Tables
+Epinard A La creme,40.00,0.16,%,2.11,7.21,,5.10,84.48,288.28,203.80,7.21,Low,Low,,Dog,,Tables
+Gratin Dauphinois,66.00,0.26,%,1.29,5.41,,4.12,85.11,356.74,271.62,5.41,Low,Low,,Dog,,Tables
+Grilled Portobello Mushrooms,95.00,0.38,%,3.11,8.11,,5.00,295.64,770.26,474.62,8.11,Low,High,,Workhorse,,Tables
+Grilled Pot & Veg,56.00,0.22,%,0.58,4.05,,3.47,32.66,227.02,194.37,4.05,Low,Low,,Dog,,Tables
+Mixed Greens Salad,54.00,0.22,%,0.13,4.05,,3.92,7.03,218.92,211.89,4.05,Low,Low,,Dog,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 10 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Pain Figue,2.00,0.01,%,1.88,4.95,,3.08,3.75,9.91,6.16,4.95,Low,Low,,Dog,,Tables
+Pommes De Terres Forestiere,19.00,0.08,%,1.16,4.95,,3.80,21.97,94.14,72.17,4.95,Low,Low,,Dog,,Tables
+Pommes Frites,89.00,0.36,%,0.98,4.95,,3.97,87.58,441.00,353.42,4.95,Low,High,,Workhorse,,Tables
+Pommes Rissolees,10.00,0.04,%,0.58,4.95,,4.37,5.85,49.55,43.70,4.95,Low,Low,,Dog,,Tables
+Roasted Baby Potatoes,22.00,0.09,%,0.83,4.95,,4.13,18.18,109.01,90.83,4.95,Low,Low,,Dog,,Tables
+Truffle Parmesan Frites,20.00,0.08,%,2.98,8.11,,5.13,59.64,162.16,102.52,8.11,Low,Low,,Dog,,Tables
+Group: Specials,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Beouf Bourgignon,12.00,0.05,%,10.42,31.53,,21.11,125.07,378.38,253.31,31.53,High,Low,,Challenge,,Tables
+Chef Dishes,3.00,0.01,%,0.00,27.03,,27.03,0.00,81.08,81.08,27.03,High,Low,,Challenge,,Tables
+Filet Rossini,16.00,0.06,%,19.72,55.86,,36.14,315.52,893.70,578.18,55.86,High,Low,,Challenge,,Tables
+Foie Gras,9.00,0.04,%,10.41,28.83,,18.42,93.66,259.46,165.80,28.83,High,Low,,Challenge,,Tables
+Lamb Shank,6.00,0.02,%,10.38,34.23,,23.86,62.26,205.40,143.14,34.23,High,Low,,Challenge,,Tables
+Mousse Au Chocolat,83.00,0.33,%,1.97,6.31,,4.34,163.13,523.41,360.27,6.31,Low,Low,,Dog,,Tables
+Salade Roquettes & Crevettes,51.00,0.20,%,4.50,15.54,,11.04,229.60,792.59,562.99,15.54,High,Low,,Challenge,,Tables
+Group: Spirits/Digestif,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Arak Gls,2.00,0.01,%,0.69,4.50,,3.81,1.38,9.01,7.63,4.50,Low,Low,,Dog,,Tables
+Armagnac,1.00,0.00,%,4.00,12.61,,8.61,4.00,12.61,8.61,12.61,High,Low,,Challenge,,Tables
+Fernet Shot,2.00,0.01,%,1.64,7.21,,5.57,3.28,14.41,11.13,7.21,Low,Low,,Dog,,Tables
+Goldschlager Shot,1.00,0.00,%,0.88,3.60,,2.72,0.88,3.60,2.72,3.60,Low,Low,,Dog,,Tables
+Ksara Eau De Vie Gls,4.00,0.02,%,1.23,9.01,,7.78,4.91,36.04,31.13,9.01,High,Low,,Challenge,,Tables
+Lemoncello Shot,5.00,0.02,%,1.17,4.05,,2.89,5.83,20.27,14.44,4.05,Low,Low,,Dog,,Tables
+Group: Starters,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Baguette White,679.00,2.71,%,1.38,0.00,,-1.38,934.38,0.00,-934.38,0.00,Low,High,,Workhorse,,Tables
+Bone Marrow Plate,95.00,0.38,%,7.31,19.82,,12.51,694.59,"1,882.90","1,188.31",19.82,High,High,,Star,,Tables
+Burrata,181.00,0.72,%,5.85,16.22,,10.36,"1,059.40","2,935.10","1,875.70",16.22,High,High,,Star,,Tables
+Calamars Frits,129.00,0.52,%,6.69,15.32,,8.63,862.54,"1,975.64","1,113.10",15.32,High,High,,Star,,Tables
+Crab Cakes,47.00,0.19,%,4.95,16.22,,11.27,232.64,762.15,529.51,16.22,High,Low,,Challenge,,Tables
+Duck Spring Rolls,91.75,0.37,%,3.35,14.41,,11.06,307.63,"1,322.49","1,014.86",14.41,High,High,,Star,,Tables
+Escargots 12 Pieces,62.00,0.25,%,6.23,19.82,,13.59,386.41,"1,228.84",842.43,19.82,High,Low,,Challenge,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 11 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Escargots 6 Pieces,103.00,0.41,%,3.12,9.91,,6.79,320.97,"1,020.73",699.76,9.91,High,High,,Star,,Tables
+Extra Bone Marrow,3.00,0.01,%,3.50,9.01,,5.51,10.50,27.03,16.53,9.01,Low,Low,,Dog,,Tables
+FIRE,975.00,3.90,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Hold,"1,060.00",4.24,%,0.00,0.00,,0.00,0.00,0.00,0.00,0.00,Low,High,,Workhorse,,Tables
+Poelee De Champignons,202.00,0.81,%,3.87,12.61,,8.74,782.44,"2,547.81","1,765.37",12.61,High,High,,Star,,Tables
+Salade De Lentilles,51.00,0.20,%,2.13,10.81,,8.68,108.71,551.36,442.65,10.81,High,Low,,Challenge,,Tables
+Soup A L'Oignon Gratinee,644.00,2.57,%,1.69,8.11,,6.42,"1,089.26","5,221.55","4,132.30",8.11,Low,High,,Workhorse,,Tables
+Soupe Du Jour,99.00,0.40,%,0.00,8.11,,8.11,0.00,802.69,802.69,8.11,High,High,,Star,,Tables
+Tartare De Saumon,69.00,0.28,%,6.70,18.02,,11.32,462.10,"1,243.24",781.14,18.02,High,Low,,Challenge,,Tables
+Tarte Fine De Chevre Frais,52.00,0.21,%,3.58,10.81,,7.23,186.30,562.17,375.88,10.81,High,Low,,Challenge,,Tables
+Group: Tequila,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+1800 Cristalino Tequila Reserva Gls,5.00,0.02,%,1.85,13.51,,11.66,9.25,67.57,58.32,13.51,High,Low,,Challenge,,Tables
+Cenote Tequila Reposado Gls,1.50,0.01,%,4.29,16.22,,11.93,6.43,24.32,17.90,16.22,High,Low,,Challenge,,Tables
+Jose Cuervo Tequila Gold Reposado Gls,1.00,0.00,%,0.99,7.21,,6.22,0.99,7.21,6.22,7.21,Low,Low,,Dog,,Tables
+Jose Cuervo Tequila Shot,6.00,0.02,%,0.63,3.15,,2.52,3.77,18.92,15.15,3.15,Low,Low,,Dog,,Tables
+Mijenta Tequila Reposado Gls,10.00,0.04,%,3.86,16.22,,12.36,38.57,162.16,123.59,16.22,High,Low,,Challenge,,Tables
+Group: Weekday Lunch OFFER,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+7up Lunch Offer,34.00,0.14,%,0.49,0.00,,-0.49,16.83,0.00,-16.83,0.00,Low,Low,,Dog,,Tables
+Boeuf Stroganoff,63.00,0.25,%,5.23,13.74,,8.51,329.18,865.55,536.37,13.74,High,Low,,Challenge,,Tables
+Couqley Steak Frites Lunch,206.00,0.82,%,6.35,19.82,,13.47,"1,307.38","4,082.90","2,775.52",19.82,High,High,,Star,,Tables
+Diet 7up Lunch Offer,47.00,0.19,%,0.49,0.00,,-0.49,23.03,0.00,-23.03,0.00,Low,Low,,Dog,,Tables
+Diet Pepsi Lunch Offer,105.00,0.42,%,0.49,0.00,,-0.49,51.98,0.00,-51.98,0.00,Low,High,,Workhorse,,Tables
+Iced Tea Lunch Offer,1.00,0.00,%,0.54,0.00,,-0.54,0.54,0.00,-0.54,0.00,Low,Low,,Dog,,Tables
+Lunch Offer Sea Bass,3.00,0.01,%,15.89,27.93,,12.04,47.66,83.78,36.13,27.93,High,Low,,Challenge,,Tables
+Pepsi Lunch Offer,70.00,0.28,%,0.49,0.00,,-0.49,34.65,0.00,-34.65,0.00,Low,Low,,Dog,,Tables
+Pepsi Zero Lunch Offer,17.00,0.07,%,0.49,0.00,,-0.49,8.33,0.00,-8.33,0.00,Low,Low,,Dog,,Tables
+Poulet Frites Lunch,18.00,0.07,%,5.67,15.32,,9.64,102.10,275.67,173.58,15.32,High,Low,,Challenge,,Tables
+Poulet Frites Sandwich,20.00,0.08,%,4.69,12.61,,7.93,93.74,252.26,158.52,12.61,High,Low,,Challenge,,Tables
+08-Feb-26,,,,,,Year: 2026 - Month: 1,,,,,,,,Page 12 of,, 12,
+Menu Item ,Qty,Popularity,,Item cost,Item Sell Price,,Item Profit,Tot. Cost,Tot Revenue,Tot Profit,PL1,Profit ,Popularit,,Menu Item ,,Menu
+Steak Frites Sandwich,87.00,0.35,%,6.25,15.32,,9.06,543.96,"1,332.42",788.46,15.32,High,High,,Star,,Tables
+Group: Whiskey,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Black Label Gls,24.00,0.10,%,1.66,9.01,,7.35,39.93,216.22,176.28,9.01,High,Low,,Challenge,,Tables
+Chivas 12Y Gls,6.00,0.02,%,1.54,9.01,,7.47,9.26,54.05,44.80,9.01,High,Low,,Challenge,,Tables
+Chivas 18Y Gls,4.00,0.02,%,4.63,16.22,,11.59,18.51,64.86,46.35,16.22,High,Low,,Challenge,,Tables
+Glenfiddich 12 Gls,4.00,0.02,%,2.31,10.81,,8.50,9.26,43.24,33.99,10.81,High,Low,,Challenge,,Tables
+Glenfiddich 15 Gls,6.00,0.02,%,3.86,14.41,,10.56,23.14,86.49,63.34,14.41,High,Low,,Challenge,,Tables
+Jameson Gls,5.00,0.02,%,1.26,7.21,,5.94,6.31,36.03,29.72,7.21,Low,Low,,Dog,,Tables
+Laphroaig Gls,4.00,0.02,%,2.78,12.61,,9.84,11.11,50.45,39.34,12.61,High,Low,,Challenge,,Tables
+Macallan 12 Gls,5.00,0.02,%,5.54,19.82,,14.28,27.69,99.10,71.41,19.82,High,Low,,Challenge,,Tables
+Maker's Mark Gls,3.00,0.01,%,2.72,11.71,,8.99,8.16,35.14,26.98,11.71,High,Low,,Challenge,,Tables
+Monkey Shoulder Gls,5.00,0.02,%,1.63,11.71,,10.08,8.14,58.56,50.42,11.71,High,Low,,Challenge,,Tables
+Old Parr Gls,4.00,0.02,%,3.02,10.81,,7.79,12.09,43.24,31.16,10.81,High,Low,,Challenge,,Tables
+Group: White Wine - Europe,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Pinot Grigio Magna Terra 2024,2.00,0.01,%,8.25,37.84,,29.59,16.50,75.68,59.18,37.84,High,Low,,Challenge,,Tables
+Group: White Wine - France,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+"Entre 2 Mers, Chateau Martinon 2023 White",1.00,0.00,%,12.16,42.34,,30.18,12.16,42.34,30.18,42.34,High,Low,,Challenge,,Tables
+Group: White Wine - Lebanon,,,,,,,,,,,,,,,,,
+Menu : Tables,,,,,,,,,,,,,,,,,
+Adeenne Blanc,1.00,0.00,%,8.33,26.13,,17.80,8.33,26.13,17.80,26.13,High,Low,,Challenge,,Tables
+Altitudes Ixsir Lebanon,12.00,0.05,%,9.68,28.83,,19.15,116.16,345.95,229.79,28.83,High,Low,,Challenge,,Tables
+Blanc de Blanc Btl,14.00,0.06,%,4.09,19.82,,15.72,57.33,277.48,220.15,19.82,High,Low,,Challenge,,Tables
+Château Trois Collines “Naysa”,1.00,0.00,%,5.36,18.92,,13.56,5.36,18.92,13.56,18.92,High,Low,,Challenge,,Tables
+Latourba Chardonnay,1.00,0.00,%,10.81,32.43,,21.62,10.81,32.43,21.62,32.43,High,Low,,Challenge,,Tables
+Reve Blanc,2.40,0.01,%,4.12,19.82,,15.69,9.90,47.57,37.67,19.82,High,Low,,Challenge,,Tables
+,,,,,,,,299.00,,,,,,,,,
+REP_S_00506,,"Copyright © 2026 Omega Software, Inc. All Rights Reserved.",,,,,,,,,,,,www.omegapos.com,,,
+<div style='background-color:white;border: 2px solid #eee; padding:10px 20px'><div style='text-align: center; border-bottom: 1px solid #eee; padding: 10px 0px 20px 0px; color: #4d5b76; font-size: xx-large;'>Error Occured</div><br><div style='line-height: 30px;'>Cannot modify header information - headers already sent by (output started at /var/www/html/cmsomegasoftware/public_html/app/Http/Controllers/ReportsController.php:2684)</div><footer style='margin-top: 30px; padding: 10px 0; border-top: 1px solid #eee; text-align: center;color:#4d5b76'><div style='font-size: 14px;'>&copy; 2026 Omega Software. All rights reserved.</div></footer></div>

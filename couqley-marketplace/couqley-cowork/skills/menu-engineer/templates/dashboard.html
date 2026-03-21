@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couqley Menu Engineering Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #F7F3E9;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border: 3px solid #BF9966;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #BF9966;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #CC3333;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #BF9966;
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: 32px;
+            color: #CC3333;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .period {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #F7F3E9 0%, #FFF 100%);
+            border: 2px solid #BF9966;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(191, 153, 102, 0.3);
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .metric-value {
+            font-size: 36px;
+            color: #CC3333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .metric-subtitle {
+            font-size: 13px;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: white;
+            background: #CC3333;
+            padding: 15px 25px;
+            margin: 40px 0 20px 0;
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .chart-container {
+            background: white;
+            border: 2px solid #BF9966;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            height: 450px;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 100%;
+        }
+
+        .table-container {
+            background: white;
+            border: 2px solid #BF9966;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #CC3333;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #F7F3E9;
+        }
+
+        .insights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .insight-card {
+            background: #F7F3E9;
+            border-left: 4px solid #CC3333;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .insight-title {
+            font-size: 16px;
+            color: #CC3333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .insight-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #BF9966;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .placeholder-text {
+            color: #999;
+            font-style: italic;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">COUQLEY</div>
+            <div class="tagline">FRENCH BISTRO</div>
+            <div class="title">Menu Engineering Analysis</div>
+            <div class="period"><!-- DATA:period --></div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Items</div>
+                <div class="metric-value"><!-- DATA:total_items --></div>
+                <div class="metric-subtitle">Menu items analyzed</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Challenge Items</div>
+                <div class="metric-value"><!-- DATA:challenges_count --></div>
+                <div class="metric-subtitle">High margin, low volume</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Stars</div>
+                <div class="metric-value"><!-- DATA:stars_count --></div>
+                <div class="metric-subtitle">High margin, high volume</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Avg Profit Margin</div>
+                <div class="metric-value"><!-- DATA:avg_margin_pct -->%</div>
+                <div class="metric-subtitle">Across all items</div>
+            </div>
+        </div>
+
+        <div class="section-title">Boston Matrix Quadrants</div>
+        <div class="chart-container">
+            <div class="chart-wrapper">
+                <canvas id="bostonMatrixChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section-title">Challenge Items (Marketing Priorities)</div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Group</th>
+                        <th>Qty Sold</th>
+                        <th>Price</th>
+                        <th>Profit Margin</th>
+                        <th>Total Profit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- DATA:challenge_items_rows -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title">Marketing Plays (Top Items)</div>
+        <div id="marketingPlaysSection" class="placeholder-text">
+            <!-- DATA:marketing_plays -->
+        </div>
+
+        <div class="section-title">Profit Optimization Scenarios</div>
+        <div class="chart-container">
+            <div class="chart-wrapper">
+                <canvas id="profitOptimizationChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section-title">Key Insights</div>
+        <div class="insights">
+            <!-- DATA:insights_cards -->
+        </div>
+
+        <div class="footer">
+            Couqley French Bistro | Menu Engineering Analysis | Confidential
+        </div>
+    </div>
+
+    <script>
+        // Boston Matrix scatter chart
+        const bostonCtx = document.getElementById('bostonMatrixChart').getContext('2d');
+        new Chart(bostonCtx, {
+            type: 'scatter',
+            data: {
+                datasets: [
+                    {
+                        label: 'Stars',
+                        data: [/* CHART DATA: Stars */],
+                        backgroundColor: 'rgba(46, 204, 113, 0.6)',
+                        borderColor: '#2ECC71',
+                        borderWidth: 2,
+                        pointRadius: 8
+                    },
+                    {
+                        label: 'Challenges',
+                        data: [/* CHART DATA: Challenges */],
+                        backgroundColor: 'rgba(204, 51, 51, 0.6)',
+                        borderColor: '#CC3333',
+                        borderWidth: 2,
+                        pointRadius: 8
+                    },
+                    {
+                        label: 'Workhorses',
+                        data: [/* CHART DATA: Workhorses */],
+                        backgroundColor: 'rgba(191, 153, 102, 0.6)',
+                        borderColor: '#BF9966',
+                        borderWidth: 2,
+                        pointRadius: 8
+                    },
+                    {
+                        label: 'Dogs',
+                        data: [/* CHART DATA: Dogs */],
+                        backgroundColor: 'rgba(200, 200, 200, 0.6)',
+                        borderColor: '#888',
+                        borderWidth: 2,
+                        pointRadius: 8
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { font: { size: 13 }, padding: 15 }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Menu Engineering: Profit Margin vs Popularity',
+                        font: { size: 18, weight: 'bold' },
+                        color: '#CC3333',
+                        padding: 20
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Popularity (%)',
+                            font: { size: 14, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Profit Margin (%)',
+                            font: { size: 14, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Profit Optimization chart
+        const profitCtx = document.getElementById('profitOptimizationChart').getContext('2d');
+        new Chart(profitCtx, {
+            type: 'bar',
+            data: {
+                labels: [/* CHART DATA: Item names */],
+                datasets: [
+                    {
+                        label: 'Current Profit',
+                        data: [/* CHART DATA: Current profit */],
+                        backgroundColor: 'rgba(191, 153, 102, 0.6)',
+                        borderColor: '#BF9966',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Projected Profit (30% volume increase)',
+                        data: [/* CHART DATA: Projected profit */],
+                        backgroundColor: 'rgba(46, 204, 113, 0.6)',
+                        borderColor: '#2ECC71',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { font: { size: 13 }, padding: 15 }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Profit Optimization: Current vs Projected (30% Volume Increase)',
+                        font: { size: 18, weight: 'bold' },
+                        color: '#CC3333',
+                        padding: 20
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000).toFixed(0) + 'K';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

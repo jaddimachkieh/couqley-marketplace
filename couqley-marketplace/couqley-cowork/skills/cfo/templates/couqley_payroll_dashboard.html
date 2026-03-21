@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couqley Payroll Health Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #F7F3E9;
+            color: #333;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border: 3px solid #BF9966;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #BF9966;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #CC3333;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #BF9966;
+            font-weight: bold;
+        }
+        
+        .title {
+            font-size: 32px;
+            color: #CC3333;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        .period {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #F7F3E9 0%, #FFF 100%);
+            border: 2px solid #BF9966;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(191, 153, 102, 0.3);
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .metric-value {
+            font-size: 36px;
+            color: #CC3333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .metric-subtitle {
+            font-size: 13px;
+            color: #888;
+            margin-top: 8px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: white;
+            background: #CC3333;
+            padding: 15px 25px;
+            margin: 40px 0 20px 0;
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            background: white;
+            border: 2px solid #BF9966;
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            height: 400px;
+        }
+        
+        .chart-container.full-width {
+            grid-column: 1 / -1;
+            height: 450px;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 100%;
+        }
+        
+        .department-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .dept-card {
+            background: #F7F3E9;
+            border: 2px solid #BF9966;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .dept-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #CC3333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .dept-cost {
+            font-size: 28px;
+            color: #333;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .dept-stats {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .dept-percentage {
+            display: inline-block;
+            background: #CC3333;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .insights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .insight-card {
+            background: #F7F3E9;
+            border-left: 4px solid #CC3333;
+            padding: 20px;
+            border-radius: 6px;
+        }
+        
+        .insight-title {
+            font-size: 16px;
+            color: #CC3333;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .insight-title::before {
+            content: '✓';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #CC3333;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .insight-card.warning .insight-title::before {
+            content: '!';
+            background: #BF9966;
+        }
+        
+        .insight-card.warning {
+            border-left-color: #BF9966;
+        }
+        
+        .insight-card.warning .insight-title {
+            color: #BF9966;
+        }
+        
+        .insight-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .top-employees {
+            background: #F7F3E9;
+            border: 2px solid #BF9966;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .top-employees h3 {
+            color: #CC3333;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .employee-list {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .employee-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: white;
+            border-left: 3px solid #BF9966;
+            border-radius: 4px;
+        }
+        
+        .employee-info {
+            flex: 1;
+        }
+        
+        .employee-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        
+        .employee-position {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .employee-cost {
+            font-size: 18px;
+            font-weight: bold;
+            color: #CC3333;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #BF9966;
+            color: #888;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">COUQLEY</div>
+            <div class="tagline">FRENCH BISTRO</div>
+            <div class="title">Payroll Health Dashboard</div>
+            <div class="period">Multi-Month Analysis (11 months of data)</div>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Employees</div>
+                <div class="metric-value">69</div>
+                <div class="metric-subtitle">Across 5 departments</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Total Payroll</div>
+                <div class="metric-value">$346K</div>
+                <div class="metric-subtitle">Multi-month period</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Avg per Employee</div>
+                <div class="metric-value">$5,008</div>
+                <div class="metric-subtitle">Average payroll cost</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Monthly Average</div>
+                <div class="metric-value">$31.4K</div>
+                <div class="metric-subtitle">Based on 11 months</div>
+            </div>
+        </div>
+        
+        <div class="section-title">Department Breakdown</div>
+        <div class="department-breakdown">
+            <div class="dept-card">
+                <div class="dept-name">Kitchen</div>
+                <div class="dept-cost">$148K</div>
+                <div class="dept-stats">23 employees<br>Avg: $914/employee</div>
+                <div class="dept-percentage">42.9%</div>
+            </div>
+            <div class="dept-card">
+                <div class="dept-name">Floor</div>
+                <div class="dept-cost">$129K</div>
+                <div class="dept-stats">30 employees<br>Avg: $792/employee</div>
+                <div class="dept-percentage">37.4%</div>
+            </div>
+            <div class="dept-card">
+                <div class="dept-name">Cleaning</div>
+                <div class="dept-cost">$37K</div>
+                <div class="dept-stats">10 employees<br>Avg: $561/employee</div>
+                <div class="dept-percentage">10.7%</div>
+            </div>
+            <div class="dept-card">
+                <div class="dept-name">Bar</div>
+                <div class="dept-cost">$16K</div>
+                <div class="dept-stats">2 employees<br>Avg: $746/employee</div>
+                <div class="dept-percentage">4.8%</div>
+            </div>
+            <div class="dept-card">
+                <div class="dept-name">Support</div>
+                <div class="dept-cost">$15K</div>
+                <div class="dept-stats">4 employees<br>Avg: $261/employee</div>
+                <div class="dept-percentage">4.3%</div>
+            </div>
+        </div>
+        
+        <div class="section-title">Cost Analysis</div>
+        <div class="chart-row">
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="deptChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="positionChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-container full-width">
+            <div class="chart-wrapper">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="top-employees">
+            <h3>Top 10 Highest Paid Employees</h3>
+            <div class="employee-list">
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Wassim Mourtada</div>
+                        <div class="employee-position">Kitchen • Head Chef</div>
+                    </div>
+                    <div class="employee-cost">$24,403</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Rana Tannous</div>
+                        <div class="employee-position">Floor • Floor Manager</div>
+                    </div>
+                    <div class="employee-cost">$21,959</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Omar Itani</div>
+                        <div class="employee-position">Floor • Assistant Manager</div>
+                    </div>
+                    <div class="employee-cost">$15,017</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Ali Khanafer</div>
+                        <div class="employee-position">Kitchen • Sous Chef</div>
+                    </div>
+                    <div class="employee-cost">$12,928</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Hassan Baydoun</div>
+                        <div class="employee-position">Kitchen • Chef de Partie</div>
+                    </div>
+                    <div class="employee-cost">$12,226</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Luiji Hadchity</div>
+                        <div class="employee-position">Floor • Team Leader</div>
+                    </div>
+                    <div class="employee-cost">$12,060</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Mohamad Choura</div>
+                        <div class="employee-position">Kitchen • Chef de Partie</div>
+                    </div>
+                    <div class="employee-cost">$12,025</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Hassan Kawssan</div>
+                        <div class="employee-position">Floor • Team Leader</div>
+                    </div>
+                    <div class="employee-cost">$11,885</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Chantalle Resto</div>
+                        <div class="employee-position">Floor • Hostess</div>
+                    </div>
+                    <div class="employee-cost">$11,014</div>
+                </div>
+                <div class="employee-row">
+                    <div class="employee-info">
+                        <div class="employee-name">Mouin</div>
+                        <div class="employee-position">Kitchen • Chef de Partie</div>
+                    </div>
+                    <div class="employee-cost">$10,671</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">Key Insights</div>
+        <div class="insights">
+            <div class="insight-card">
+                <div class="insight-title">Balanced Labor Structure</div>
+                <div class="insight-text">Kitchen (43%) and Floor (37%) teams are appropriately sized for bistro operations with 53 employees in customer-facing roles.</div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-title">Stable Monthly Costs</div>
+                <div class="insight-text">Monthly payroll averaging $31.4K with minimal variance (±$2K), showing predictable labor expenses and consistent staffing levels.</div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-title">Competitive Chef Compensation</div>
+                <div class="insight-text">Chef de Partie position (13 employees) represents $58K total cost, indicating investment in skilled kitchen talent and quality standards.</div>
+            </div>
+            <div class="insight-card warning">
+                <div class="insight-title">Kitchen Cost Concentration</div>
+                <div class="insight-text">Kitchen represents 43% of payroll with premium wages. Monitor food costs and kitchen productivity to optimize labor efficiency.</div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-title">Management Investment</div>
+                <div class="insight-text">Top 3 employees (management) account for $61K, demonstrating leadership investment with Head Chef and Floor Manager leading teams.</div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-title">Support Functions Lean</div>
+                <div class="insight-text">Support and Cleaning (14 employees, 15% of payroll) kept efficient while maintaining operational standards and cost control.</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Couqley French Bistro | Confidential Payroll Dashboard | Generated January 7, 2026
+        </div>
+    </div>
+    
+    <script>
+        // Department Costs Chart
+        const deptCtx = document.getElementById('deptChart').getContext('2d');
+        new Chart(deptCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Kitchen', 'Floor', 'Cleaning', 'Bar', 'Support'],
+                datasets: [{
+                    data: [148129, 129115, 37042, 16406, 14850],
+                    backgroundColor: ['#CC3333', '#B42D2D', '#BF9966', '#D2B48C', '#E4D2B4'],
+                    borderColor: '#BF9966',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 12 },
+                            padding: 15
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Payroll by Department',
+                        font: { size: 16, weight: 'bold' },
+                        color: '#CC3333',
+                        padding: 20
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return label + ': $' + value.toLocaleString() + ' (' + percentage + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Top Positions Chart
+        const posCtx = document.getElementById('positionChart').getContext('2d');
+        new Chart(posCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Chef de Partie', 'Stewerd', 'Head Chef', 'Team Leader', 'Runner', 'Assistant Mgr', 'Floor Mgr'],
+                datasets: [{
+                    label: 'Total Cost ($)',
+                    data: [57911, 41996, 31278, 23486, 22953, 19302, 19088],
+                    backgroundColor: '#CC3333',
+                    borderColor: '#BF9966',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Top 7 Positions by Cost',
+                        font: { size: 16, weight: 'bold' },
+                        color: '#CC3333',
+                        padding: 20
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000).toFixed(0) + 'K';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Monthly Trends Chart
+        const trendCtx = document.getElementById('trendChart').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+                datasets: [{
+                    label: 'Monthly Payroll Cost',
+                    data: [31049, 32647, 30964, 28834, 29317, 30890, 30411, 32474, 32832, 32409, 33715],
+                    borderColor: '#CC3333',
+                    backgroundColor: 'rgba(204, 51, 51, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 5,
+                    pointBackgroundColor: '#CC3333',
+                    pointBorderColor: '#BF9966',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Monthly Payroll Trends',
+                        font: { size: 18, weight: 'bold' },
+                        color: '#CC3333',
+                        padding: 20
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000).toFixed(0) + 'K';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

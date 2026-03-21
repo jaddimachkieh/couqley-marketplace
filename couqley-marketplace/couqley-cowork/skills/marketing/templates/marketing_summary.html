@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couqley - Marketing Insights Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #F7F3E9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #CC3333 0%, #a02626 100%);
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            border-bottom: 3px solid #BF9966;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .period {
+            font-size: 1rem;
+            opacity: 0.85;
+            font-weight: normal;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid #BF9966;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(204, 51, 51, 0.15);
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #CC3333;
+        }
+
+        .metric-detail {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 0.5rem;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            background: linear-gradient(90deg, #CC3333 0%, #a02626 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            margin: -2rem -2rem 1.5rem -2rem;
+            border-radius: 8px 8px 0 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Chart container */
+        .chart-container {
+            position: relative;
+            height: 350px;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 2px solid #BF9966;
+            border-radius: 6px;
+            background: rgba(191, 153, 102, 0.03);
+        }
+
+        .chart-container.small {
+            height: 250px;
+        }
+
+        /* Insight cards */
+        .insight-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .insight-card {
+            background: #f9f7f4;
+            padding: 1.5rem;
+            border-left: 5px solid #CC3333;
+            border-radius: 6px;
+            border-top: 2px solid #BF9966;
+        }
+
+        .insight-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #CC3333;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .insight-metric {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #BF9966;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Action items */
+        .action-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .action-item {
+            background: linear-gradient(135deg, #f9f7f4 0%, white 100%);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 2px solid #BF9966;
+            position: relative;
+        }
+
+        .action-item::before {
+            content: "→";
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: #CC3333;
+        }
+
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #CC3333;
+            margin-bottom: 0.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .action-description {
+            font-size: 0.95rem;
+            color: #555;
+            margin-left: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .action-priority {
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+        }
+
+        .action-priority.high {
+            color: #CC3333;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #BF9966;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                margin: -1.5rem -1.5rem 1rem -1.5rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">COUQLEY</div>
+        <div class="tagline">FRENCH BISTRO</div>
+        <h1>Marketing Insights Dashboard</h1>
+        <div class="period"><!-- REPLACE: period --></div>
+    </header>
+
+    <div class="container">
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Revenue</div>
+                <div class="metric-value"><!-- REPLACE: total_revenue --></div>
+                <div class="metric-detail">Period total</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Top Selling Item</div>
+                <div class="metric-value" style="font-size: 1.2rem;"><!-- REPLACE: top_item --></div>
+                <div class="metric-detail"><!-- REPLACE: top_item_revenue --></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Peak Hour</div>
+                <div class="metric-value"><!-- REPLACE: peak_hour --></div>
+                <div class="metric-detail">Highest sales time</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Avg Ticket</div>
+                <div class="metric-value"><!-- REPLACE: avg_ticket --></div>
+                <div class="metric-detail">Per transaction</div>
+            </div>
+        </div>
+
+        <!-- Top Performers Section -->
+        <div class="section">
+            <div class="section-title">Top Performers</div>
+            <p style="color: #999; font-size: 0.9rem; margin-bottom: 1rem;">Revenue contribution from top 10 menu items</p>
+            <div class="chart-container">
+                <canvas id="topPerformersChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Category Breakdown Section -->
+        <div class="section">
+            <div class="section-title">Category Breakdown</div>
+            <p style="color: #999; font-size: 0.9rem; margin-bottom: 1rem;">Sales distribution by menu category</p>
+            <div class="chart-container small">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Sales Trend Section -->
+        <div class="section">
+            <div class="section-title">Sales Trend</div>
+            <p style="color: #999; font-size: 0.9rem; margin-bottom: 1rem;">Daily revenue trends over the period</p>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Marketing Opportunities Section -->
+        <div class="section">
+            <div class="section-title">Marketing Opportunities</div>
+            <div class="insight-cards">
+                <div class="insight-card">
+                    <div class="insight-title">🎯 Cross-Sell Potential</div>
+                    <div class="insight-description">
+                        <!-- REPLACE: crosssell_insight -->
+                    </div>
+                    <div class="insight-metric">
+                        Estimated impact: <!-- REPLACE: crosssell_impact -->
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">📈 Growth Opportunity</div>
+                    <div class="insight-description">
+                        <!-- REPLACE: growth_insight -->
+                    </div>
+                    <div class="insight-metric">
+                        Potential revenue: <!-- REPLACE: growth_potential -->
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">⏰ Time-Based Promotion</div>
+                    <div class="insight-description">
+                        <!-- REPLACE: timing_insight -->
+                    </div>
+                    <div class="insight-metric">
+                        Best window: <!-- REPLACE: timing_window -->
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">⭐ Customer Favorite</div>
+                    <div class="insight-description">
+                        <!-- REPLACE: favorite_insight -->
+                    </div>
+                    <div class="insight-metric">
+                        Sold: <!-- REPLACE: favorite_count --> units this period
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Actions Section -->
+        <div class="section">
+            <div class="section-title">Recommended Actions</div>
+            <div class="action-items">
+                <div class="action-item">
+                    <div class="action-title"><!-- REPLACE: action1_title --></div>
+                    <div class="action-description">
+                        <!-- REPLACE: action1_description -->
+                    </div>
+                    <div class="action-priority high"><!-- REPLACE: action1_priority --></div>
+                </div>
+                <div class="action-item">
+                    <div class="action-title"><!-- REPLACE: action2_title --></div>
+                    <div class="action-description">
+                        <!-- REPLACE: action2_description -->
+                    </div>
+                    <div class="action-priority"><!-- REPLACE: action2_priority --></div>
+                </div>
+                <div class="action-item">
+                    <div class="action-title"><!-- REPLACE: action3_title --></div>
+                    <div class="action-description">
+                        <!-- REPLACE: action3_description -->
+                    </div>
+                    <div class="action-priority"><!-- REPLACE: action3_priority --></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Generated: <!-- REPLACE: generation_date --> | Couqley French Bistro Marketing Intelligence</p>
+    </footer>
+
+    <script>
+        // Placeholder Chart.js configurations
+        // These will be populated with actual data at runtime
+
+        // Top Performers - Horizontal Bar Chart
+        const topPerformersCtx = document.getElementById('topPerformersChart').getContext('2d');
+        const topPerformersChart = new Chart(topPerformersCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    '<!-- REPLACE: item1 -->',
+                    '<!-- REPLACE: item2 -->',
+                    '<!-- REPLACE: item3 -->',
+                    '<!-- REPLACE: item4 -->',
+                    '<!-- REPLACE: item5 -->',
+                    '<!-- REPLACE: item6 -->',
+                    '<!-- REPLACE: item7 -->',
+                    '<!-- REPLACE: item8 -->',
+                    '<!-- REPLACE: item9 -->',
+                    '<!-- REPLACE: item10 -->'
+                ],
+                datasets: [{
+                    label: 'Revenue ($)',
+                    data: [
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                    ],
+                    backgroundColor: '#CC3333',
+                    borderColor: '#a02626',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Category Breakdown - Doughnut Chart
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        const categoryChart = new Chart(categoryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    '<!-- REPLACE: category1 -->',
+                    '<!-- REPLACE: category2 -->',
+                    '<!-- REPLACE: category3 -->',
+                    '<!-- REPLACE: category4 -->',
+                    '<!-- REPLACE: category5 -->'
+                ],
+                datasets: [{
+                    data: [0, 0, 0, 0, 0],
+                    backgroundColor: [
+                        '#CC3333',
+                        '#BF9966',
+                        '#d9534f',
+                        '#c99b7e',
+                        '#a02626'
+                    ],
+                    borderColor: '#F7F3E9',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: "'Georgia', serif" },
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+
+        // Sales Trend - Line Chart
+        const trendCtx = document.getElementById('trendChart').getContext('2d');
+        const trendChart = new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: [
+                    '<!-- REPLACE: date1 -->',
+                    '<!-- REPLACE: date2 -->',
+                    '<!-- REPLACE: date3 -->',
+                    '<!-- REPLACE: date4 -->',
+                    '<!-- REPLACE: date5 -->',
+                    '<!-- REPLACE: date6 -->',
+                    '<!-- REPLACE: date7 -->'
+                ],
+                datasets: [{
+                    label: 'Daily Revenue',
+                    data: [0, 0, 0, 0, 0, 0, 0],
+                    borderColor: '#CC3333',
+                    backgroundColor: 'rgba(204, 51, 51, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#CC3333',
+                    pointBorderColor: '#a02626',
+                    pointBorderWidth: 2,
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            font: { family: "'Georgia', serif" }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
