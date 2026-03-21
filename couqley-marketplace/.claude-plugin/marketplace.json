@@ -1,0 +1,17 @@
+{
+  "name": "couqley-marketplace",
+  "owner": { "name": "Couqley" },
+  "metadata": {
+    "description": "Restaurant analytics for Couqley French Bistro — sales, menu engineering, break-even, payroll, marketing. Omega POS integration.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "couqley-cowork",
+      "source": "./couqley-cowork",
+      "description": "Couqley French Bistro analytics: sales analysis, menu engineering (Boston Matrix), break-even forecast, payroll, marketing. Upload Omega POS CSVs/Excel to reports/, get branded dashboards.",
+      "version": "1.0.0",
+      "author": { "name": "Couqley" }
+    }
+  ]
+}

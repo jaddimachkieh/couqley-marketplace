@@ -4,19 +4,48 @@ Self-contained package for Couqley French Bistro marketing analytics, menu engin
 
 ---
 
-## Claude Code Plugin Installation
+## Installation
 
-Install as a Claude Code plugin for distribution to clients:
+1. Open **Claude Desktop** and launch **Claude Cowork**
+2. Go to the **Plugins** panel (click the "+" icon)
+3. Add the Couqley Cowork plugin — install from the [plugin directory](https://claude.com/plugins-for/cowork) (if available) or add from GitHub: `github:jaddimachkieh/couqley-marketplace`
+4. Select a project folder with `reports/` and `outputs/` (see setup below)
 
-```bash
-# Add this repo as a marketplace
-/plugin marketplace add github:jaddimachkieh/couqley-marketplace
+## Project Setup (Required)
 
-# Install the plugin
-/plugin install couqley-cowork@couqley-marketplace
-```
+The plugin reads data from `reports/` and saves dashboards to `outputs/`. You must create these folders in your working directory:
 
-Then select a project folder with `reports/` and `outputs/`, upload Omega POS CSVs/Excel to `reports/`, and ask Claude to analyze.
+1. **Create a project folder** (e.g. `Couqley-Analytics` or `My-Restaurant-Data`)
+2. **Create the two subdirectories** inside it:
+
+   ```bash
+   mkdir reports outputs
+   ```
+
+3. **Open that folder** in Claude Cowork
+4. **Upload Omega POS reports** (CSV/Excel) to `reports/`
+5. Ask Claude to analyze — dashboards will be saved to `outputs/`
+
+## Prerequisites
+
+- Omega POS reports exported as CSV or Excel  
+- Report types: REP_S_00001 (sales), REP_S_00506 (menu engineering), accounting Excel, payroll Excel  
+- Mapping Sheet (Chart of Accounts) is bundled in the plugin — no setup needed
+
+## Skills at a Glance
+
+| Skill | Input | Output |
+|-------|-------|--------|
+| **brand** | — | Brand guidelines (reference) |
+| **sales** | REP_S_00001 CSV | Top items, group performance, slow movers |
+| **menu-engineer** | REP_S_00506 CSV | Boston Matrix, Challenge items, marketing plays |
+| **breakeven** | Accounting Excel | P&L, break-even, 12-month forecast |
+| **payroll** | Payroll Excel | Department breakdown, top earners |
+| **marketing** | Uses sales + menu-engineer outputs | Social calendar, promo designs |
+| **omega-extract** | — | Browser guide for Omega POS report extraction |
+| **cfo** | — | Financial reporting standards (extends brand) |
+
+**Data flow:** `reports/` (CSV, Excel) → skills parse & analyze → `outputs/` (HTML dashboards)
 
 ---
 
@@ -32,13 +61,11 @@ This package transforms raw Omega POS data into actionable marketing insights an
 
 ### 1. Set Up
 
-**Claude Code (plugin):** Install via `/plugin install couqley-cowork@couqley-marketplace` (see above).
-
-**Claude Cowork:** Open Claude Cowork, select this folder, upload reports to `reports/`, and ask questions.
+Open **Claude Cowork**, select your project folder, upload reports to `reports/`, and ask questions (see Installation above if you haven't installed the plugin yet).
 
 ### 2. Common Requests
 
-Ask Claude Cowork any of these:
+Ask Claude any of these:
 
 **Sales Analysis:**
 - "Download the latest sales report from Omega"
@@ -118,7 +145,7 @@ Marketing analysis, content generation, and promotional design.
 **Example Use:**
 ```
 User: "Analyze January sales and suggest marketing ideas"
-→ Cowork parses Omega reports, identifies top items and trends
+→ Claude parses Omega reports, identifies top items and trends
 → Generates marketing_summary.html dashboard
 → Suggests targeted promotions and content angles
 → Provides social media calendar template filled with ideas
@@ -140,7 +167,7 @@ Menu optimization using Boston Matrix and profitability analysis.
 **Example Use:**
 ```
 User: "Run a Boston Matrix analysis"
-→ Cowork analyzes item sales and cost data
+→ Claude analyzes item sales and cost data
 → Plots items on profitability vs. popularity grid
 → Provides recommendations for each category
 → Suggests menu adjustments and upsell strategies
@@ -166,7 +193,7 @@ Browser automation for extracting data from Omega POS.
 **Example Use:**
 ```
 User: "Download the latest sales report from Omega"
-→ Cowork requests username and password in chat
+→ Claude requests username and password in chat
 → Navigates to Omega POS and logs in
 → Downloads available reports
 → Saves to reports/ folder with timestamped filenames
@@ -248,7 +275,7 @@ Reference documents and content templates.
 
 ### `reports/` Directory
 
-Downloaded Omega POS reports stored here. File naming convention:
+Store your Omega POS reports here. File naming convention:
 
 ```
 Couqley_[ReportType]_[StartDate]_to_[EndDate].[pdf/csv]
@@ -268,7 +295,7 @@ Couqley_[ReportType]_[StartDate]_to_[EndDate].[pdf/csv]
 
 ### `outputs/` Directory
 
-Generated content and dashboards saved here.
+Your generated dashboards and reports are saved here.
 
 **Subdirectories:**
 ```
@@ -303,7 +330,7 @@ outputs/
    → couqley-omega-extract downloads latest report
    → sales_analyzer.py processes data
 
-2. Cowork generates:
+2. Claude generates:
    → marketing_summary.html dashboard
    → Identifies top 3 actionable insights
    → Suggests targeted promotions
@@ -324,7 +351,7 @@ outputs/
 1. Ask: "Run a Boston Matrix analysis on our current menu"
    → menu_analyzer.py processes item sales and COGS data
 
-2. Cowork categorizes each item:
+2. Claude categorizes each item:
    → STARS (promote & feature)
    → PLOWHORSES (reprice or remove)
    → PUZZLES (test promotions)
@@ -386,27 +413,14 @@ outputs/
 
 ---
 
-## Adding New Data
+## Adding Your Data
 
 ### Manually Add a Report
 
-1. Download report from Omega POS (or ask Cowork to do it)
-2. Rename file: `Couqley_[Type]_[Date]_to_[Date].[pdf/csv]`
-3. Save to: `reports/` folder
-4. Ask Cowork to analyze: "Analyze the [Month] sales report"
-
-### Add Custom Templates
-
-1. Create HTML template in `.skills/couqley-marketing/templates/`
-2. Use same brand colors and typography
-3. Add `<!-- REPLACE: placeholder_name -->` comments for data points
-4. Reference in skill code via `marketing_helpers.py`
-
-### Update Brand Guidelines
-
-1. Edit `.skills/couqley-brand/brand_guidelines.json`
-2. Add new colors, fonts, or voice guidelines
-3. All skills automatically use updated guidelines
+1. Download the report from Omega POS (or ask Claude to do it)
+2. Rename the file: `Couqley_[Type]_[Date]_to_[Date].[pdf/csv]`
+3. Save to your `reports/` folder
+4. Ask Claude to analyze: "Analyze the [Month] sales report"
 
 ---
 
@@ -488,32 +502,8 @@ mkdir reports
 
 **Solution:** Check placeholder comments in HTML
 - Dashboards have `<!-- REPLACE: field_name -->` comments
-- Cowork's script must inject actual data before rendering
+- The script must inject actual data before rendering
 - If placeholders remain, verify parser output matches expected field names
-
----
-
-## Adding New Skills
-
-To extend the package:
-
-1. Create new folder: `.skills/skills/[skill-name]/`
-2. Add `README.md` explaining the skill
-3. Add Python scripts or HTML templates
-4. Cowork auto-discovers on next reload
-5. Reference brand guidelines for consistency
-
-**Example:**
-```
-.skills/skills/couqley-analytics/
-├── README.md
-├── profit_calculator.py
-├── cost_analysis.py
-├── templates/
-│   └── profit_report.html
-└── data/
-    └── cost_multipliers.json
-```
 
 ---
 
@@ -535,7 +525,7 @@ To extend the package:
 
 ## Quick Reference: Common Tasks
 
-| Task | Ask Cowork | Time |
+| Task | Ask Claude | Time |
 |------|-----------|------|
 | Download latest report | "Download the latest sales report from Omega" | 2-3 min |
 | Analyze sales data | "Analyze [month] sales and suggest marketing ideas" | 5-10 min |
@@ -548,20 +538,16 @@ To extend the package:
 
 ---
 
-## Support & Contributing
+## Support
 
 **Questions about data?**
-- Check `reference/OMEGA_REPORTS_REFERENCE.md`
-- Verify data format matches expected structure
+- Check `reference/OMEGA_REPORTS_REFERENCE.md` in the plugin
+- Verify your data format matches the expected structure
 
 **Issues with marketing templates?**
-- Reference `reference/MARKETING_TEMPLATES.md`
-- Update templates with new examples as needed
+- Reference `reference/MARKETING_TEMPLATES.md` in the plugin
 
-**Found a bug or want a new feature?**
-- Document the issue
-- Suggest improvements
-- Update this README with solutions
+**Need help?** Ask Claude directly—it knows this package and can help with any task.
 
 ---
 
@@ -581,5 +567,3 @@ To extend the package:
 ---
 
 **Last Updated:** February 2026
-
-**Questions?** Ask Claude Cowork directly—it knows this entire package and can help with any task!

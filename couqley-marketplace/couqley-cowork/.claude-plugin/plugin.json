@@ -1,0 +1,7 @@
+{
+  "name": "couqley-cowork",
+  "description": "Restaurant analytics for Couqley French Bistro. Sales analysis, menu engineering, break-even, payroll, marketing. Upload Omega POS reports (CSV/Excel) to reports/ folder.",
+  "version": "1.0.0",
+  "author": { "name": "Couqley" },
+  "keywords": ["restaurant", "omega", "pos", "sales", "menu-engineering", "breakeven", "payroll", "marketing", "couqley"]
+}

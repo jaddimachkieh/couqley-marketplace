@@ -11,15 +11,15 @@ User uploads an Accounting Excel file (.xlsx) and asks for break-even analysis, 
 ## Input
 - **File:** Accounting Excel (.xlsx) exported from Omega POS
 - **Expected columns:** DATE, M DOLLAR (debits), D DOLLAR (credits), HISAB_NAME (account name), SAB NUMBER or HISAB_NUMBER (account number)
-- **Mapping file (auto-loaded):** `reference/Mapping Sheet.xlsx` — Chart of Accounts with IS Family classifications
+- **Mapping file (bundled):** `reference/Mapping Sheet.xlsx` in plugin — Chart of Accounts with IS Family classifications (auto-loaded from plugin)
 
 ## Workflow
 
-**Paths:** Look for reports in the project's `reports/` folder. Save dashboards to `outputs/`. Mapping Sheet: `reference/Mapping Sheet.xlsx` in project.
+**Paths:** Look for reports in the project's `reports/` folder. Save dashboards to `outputs/`. Mapping Sheet is bundled in the plugin (`reference/Mapping Sheet.xlsx`).
 
 1. Save uploaded file to `reports/` folder
 2. Run `scripts/parse.py` → `parse_excel_accounting(xlsx_path)` or `format_accounting_excel(xlsx_path)`
-   - Automatically loads `reference/Mapping Sheet.xlsx` and joins on account number
+   - Automatically loads bundled `reference/Mapping Sheet.xlsx` (Chart of Accounts) and joins on account number
    - Each transaction is enriched with `report_type`, `is_family`, and `bs_cat`
 3. Run `scripts/analyze.py` → `break_even_forecast(df)` → returns analysis dict
    - Uses IS Family for exact Revenue / COGS / OpEx classification
@@ -52,7 +52,7 @@ User uploads an Accounting Excel file (.xlsx) and asks for break-even analysis, 
 ## Account Classification
 
 ### Primary: Mapping Sheet (IS Family)
-When `reference/Mapping Sheet.xlsx` is available, accounts are classified by their IS Family:
+The bundled Mapping Sheet classifies accounts by their IS Family:
 
 - **Revenue:** Food Sales, Beverage Sales, Kiosk Sales, Other Revenues
 - **COGS:** Food Cost, Beverage Cost, COGS Branches Adjustment, Kiosk COS, F&B Transfers

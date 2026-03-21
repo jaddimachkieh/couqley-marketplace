@@ -17,8 +17,10 @@ from typing import Optional, Dict
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Default mapping sheet location (relative to project root)
-DEFAULT_MAPPING_PATH = 'reference/Mapping Sheet.xlsx'
+# Mapping sheet lives in plugin reference/ (resolved from script location)
+# parse.py is at skills/breakeven/scripts/ -> 4 levels up to couqley-cowork/
+_PLUGIN_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+DEFAULT_MAPPING_PATH = _PLUGIN_ROOT / 'reference' / 'Mapping Sheet.xlsx'
 
 
 def normalize_currency(value: str) -> float:
@@ -81,7 +83,7 @@ def load_account_mapping(mapping_path: Optional[str] = None) -> pd.DataFrame:
 
     Args:
         mapping_path: Path to the Mapping Sheet Excel file.
-                     Defaults to 'reference/Mapping Sheet.xlsx'
+                     Defaults to plugin's bundled reference/Mapping Sheet.xlsx
 
     Returns:
         DataFrame with columns: account_number, account_name, currency,
