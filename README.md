@@ -1,6 +1,6 @@
-# Couqley Cowork Marketing Package
+# Couqley Cowork Package
 
-Self-contained package for Couqley French Bistro marketing analytics, menu engineering, and sales intelligence. No external APIs, databases, or MCPs required.
+Self-contained package for Couqley French Bistro restaurant analytics: sales, menu engineering, break-even, payroll, marketing, and more. No external APIs, databases, or MCPs required.
 
 ---
 
@@ -51,7 +51,7 @@ The plugin reads data from `reports/` and saves dashboards to `outputs/`. You mu
 
 ## Overview
 
-This package transforms raw Omega POS data into actionable marketing insights and branded content. From sales analysis to social media calendars, everything is designed to help Couqley understand customer behavior and optimize revenue.
+This package transforms raw Omega POS data into actionable insights and branded outputs. From sales analysis and menu engineering to break-even forecasts, payroll review, and marketing content, everything is designed to help Couqley understand performance and optimize operations.
 
 **Key Philosophy:** Fast, elegant, standalone. No setup required beyond downloading the folder.
 
