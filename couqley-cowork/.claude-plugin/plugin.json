@@ -7,5 +7,6 @@
   },
   "homepage": "https://github.com/jaddimachkieh/couqley-marketplace",
   "repository": "https://github.com/jaddimachkieh/couqley-marketplace",
-  "license": "MIT"
+  "license": "MIT",
+  "skills": ["./skills/"]
 }
