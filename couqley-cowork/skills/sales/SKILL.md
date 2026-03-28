@@ -6,37 +6,49 @@ description: Sales performance analysis. Upload a Sales Report CSV (REP_S_00001)
 # Sales Analysis
 
 ## Trigger
-User uploads a Sales Report CSV (REP_S_00001 from Omega POS) and asks for sales analysis, trends, or performance breakdown.
+User uploads or references a Sales Report CSV (REP_S_00001 from Omega POS) and asks for sales analysis, trends, or performance breakdown.
 
 ## Input
-- **File:** Sales Report CSV (REP_S_00001_sales.csv or similar)
-- **Format:** CSV from Omega POS
+- **File:** Sales Report CSV (REP_S_00001_sales.csv or similar) — uploaded or in working folder
+- **Key columns:** Item name, quantity sold, total revenue/amount, group/category, division
+
+If no file is provided, ask: "Please upload your Omega POS Sales Report CSV (REP_S_00001) to get started."
 
 ## Workflow
 
-**Paths:** Look for reports in the project's `reports/` folder. Save dashboards to `outputs/`.
-
-1. Save uploaded file to `reports/` folder
-2. Run `scripts/parse.py` → `parse_sales_csv(csv_path)` → returns DataFrame
-3. Run `scripts/analyze.py` → multiple analysis functions → returns metrics, rankings, insights
-4. Populate `templates/dashboard.html` with analysis data
-5. Save output to `outputs/` folder
-6. Present business impact summary first, then offer dashboard
+1. **Read the file** — Read the CSV content directly from the uploaded file or working folder
+2. **Parse the data** — Identify columns for: item name, quantity, revenue, group/category
+3. **Analyze:**
+   - **Top 10 items** by revenue and by quantity
+   - **Group performance** — revenue and % of total per category
+   - **Slow movers** — bottom 25% by revenue
+   - **Promotion candidates** — high margin / low volume items
+   - **Key KPIs** — total revenue, total items, average item revenue, top group
+4. **Generate HTML dashboard** — Use the brand colors and structure below, save to working folder as `Couqley_Sales_[date].html`
+5. **Present summary first** — Lead with the executive insight before offering the dashboard
 
 ## Output
-- Branded HTML dashboard with top items, group performance, slow movers
-- Executive summary: "Total revenue of $[X] across [Y] items. Top performer: [item] at $[Z]"
 
-## Scripts (local to this skill)
-- `scripts/parse.py` — Parses REP_S_00001 Sales CSV format
-- `scripts/analyze.py` — Top items, group performance, slow movers, insights
+### Executive Summary (always first)
+"Total revenue of $[X] across [Y] items. Top performer: [item] at $[Z] ([%] of revenue). Strongest group: [group]."
 
-## Key Functions
-- `parse_sales_csv(csv_path)` → DataFrame with item_name, quantity, total_amount, group, division
-- `top_items(df, n=10, by='revenue')` → top N items by revenue or quantity
-- `group_performance(df)` → group-level breakdown with pct_of_total
-- `slow_movers(df, percentile=25)` → underperforming items
-- `promotion_candidates(df, top_n=15)` → scored promotion list
-- `revenue_metrics(df)` → KPI dict
-- `generate_insights(df)` → natural-language insights list
-- `quick_summary(df)` → one-liner for chat
+### HTML Dashboard
+Generate a complete, self-contained HTML file with:
+- **Brand colors:** Cream background `#F7F3E9`, Red headers `#CC3333`, Gold accents `#BF9966`
+- **Font:** Georgia serif
+- **Sections:**
+  1. Header with Couqley French Bistro branding
+  2. KPI cards row (total revenue, total items, top item, top group)
+  3. Top 10 items table (name, quantity, revenue, % of total) — red header row
+  4. Group performance table (group, revenue, %, item count)
+  5. Slow movers table (bottom performers flagged for review)
+  6. Key insights cards (3–5 actionable observations)
+- **Charts:** Use Chart.js CDN for bar chart (top items revenue) and doughnut (group breakdown)
+- Save file to working folder outputs as `Couqley_Sales_Analysis_[YYYY-MM].html`
+
+## Brand Compliance
+- Cream `#F7F3E9` backgrounds, Red `#CC3333` headers, Gold `#BF9966` borders
+- Table headers: white text on red background
+- Data rows: black text on cream/white
+- Currency format: $1,234 (commas, no decimals unless cents matter)
+- Warm, professional tone in insights

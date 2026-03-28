@@ -1,108 +1,65 @@
 ---
 name: couqley-marketing
-description: Comprehensive marketing analysis for Couqley Bistro. Uses outputs from sales and menu-engineer skills to generate social content, calendars, and promo designs.
+description: Comprehensive marketing analysis for Couqley Bistro. Uses sales and menu engineering data to generate social content calendars, promo designs, and marketing dashboards.
 tags: [marketing, analysis, social-media, promotions, strategy]
 ---
 
-# Couqley Marketing Analysis Skill
+# Couqley Marketing Analysis
 
-## When to Use This Skill
+## Trigger
+User asks for marketing content, social media calendar, promotional campaigns, or marketing strategy — with or without data files.
 
-Use this skill for:
-- Analyzing sales data and identifying trends
-- Finding top-performing menu items and categories
-- Generating social media content
-- Designing promotions and marketing campaigns
-- Menu marketing strategies and positioning
-- Content calendar planning
-- Email marketing campaigns
-- Campaign performance analysis
+## Input Options
+- **With data:** Sales CSV (REP_S_00001) and/or Menu Engineering CSV (REP_S_00506) uploaded or in working folder
+- **Without data:** Ask the user for key items/insights to base content on, or use outputs from couqley-sales / couqley-menu-engineer if already run
 
-## Data Flow (Orchestrator)
+If files are available, read them directly to extract insights. Do not run external scripts.
 
-This skill **orchestrates** outputs from other Couqley skills. Data flow:
+## Workflow
 
-1. **Source**: CSV (REP_S_00001 sales, REP_S_00506 menu engineering) or Excel (accounting, payroll) in the project's `reports/` folder
-2. **Parsing**: Run **couqley-sales** or **couqley-menu-engineer** first — they own the parse and analyze scripts
-3. **Input to this skill**: Use their outputs (top items, group performance, slow movers, Challenge items, Boston Matrix)
-4. **Output**: Social content, calendars, promo designs using this skill's templates
+### Step 1: Gather Insights
+**If data files are available:**
+- Read Sales CSV → identify top 5 items by revenue, top group, slow movers
+- Read Menu CSV → identify Challenge items (low popularity, high margin), Stars
 
-**Do NOT reference** pdf_parser.py, sales_analyzer.py, or menu_analyzer.py — those live in couqley-sales and couqley-menu-engineer.
-
-## Analysis Workflow
-
-### Step 1: Get Base Data
-
-- For sales insights: Run couqley-sales (parses REP_S_00001 CSV) → get top items, group performance, slow movers
-- For menu/Challenge items: Run couqley-menu-engineer (parses REP_S_00506 CSV) → get Boston Matrix, Challenge items, marketing plays
-- Reports live in project `reports/`. Save dashboards to `outputs/`.
+**If no data files:**
+- Ask: "What are your top-selling items and any items you'd like to promote more?"
 
 ### Step 2: Generate Marketing Content
+Based on the data insights, produce:
 
-- Use findings from Step 1 to populate marketing templates
-- Lead with business impact in all outputs
-- Focus on actionable recommendations
-- Connect data to specific marketing opportunities
-- Maintain brand alignment (reference couqley-brand skill)
+1. **4-Week Social Media Calendar** — 3–4 posts/week covering:
+   - Star item features (celebrate customer favorites)
+   - Challenge item spotlights (story-driven, sensory language)
+   - Behind-the-scenes / chef/kitchen content
+   - Seasonal or event-based posts
+   - Each post: platform (Instagram/Facebook), caption draft, hashtag suggestions, best posting time
 
-### Step 3: Output to Templates
+2. **Promotional Campaign Plays** — For top Challenge items:
+   - Campaign name and angle
+   - Email subject line
+   - Social caption (sensory-focused, warm bistro tone)
+   - Server upsell script (1–2 sentences)
+   - Bundle offer suggestion
 
-- Use `templates/marketing_summary.html` for interactive dashboard
-- Use `templates/social_calendar.html` for content calendar
-- Use `templates/promo_design.html` for campaign mockups
-- Save all outputs to project `outputs/` folder with clear naming
+3. **Marketing Summary Dashboard** — HTML file with:
+   - Brand colors: Cream `#F7F3E9`, Red `#CC3333`, Gold `#BF9966`
+   - Top items to feature this month
+   - Social calendar grid (4 weeks)
+   - Campaign cards for each promo
+   - Key marketing insights
+   - Save as `Couqley_Marketing_[YYYY-MM].html`
 
-## Marketing Capabilities
+## Tone & Voice
+- Warm, inviting, authentic — sophisticated but approachable
+- Sensory language: taste, aroma, texture, ambiance
+- French terminology used sparingly (Coq au Vin, Crème Brûlée — not every post)
+- Never: "AMAZING!!!", exclamation spam, generic promotional language
 
-### Top-Selling Items Analysis
-
-- Identify best performers across categories (from couqley-sales)
-- Generate social media feature posts
-- Create "customer favorites" content
-- Develop signature dish spotlights
-
-### Slow-Movers & Challenge Items
-
-- Flag underperforming items (from couqley-sales slow_movers)
-- Use Challenge items from couqley-menu-engineer for targeted promotion
-- Develop positioning and upsell strategies
-- Consider bundling with popular items
-
-### Category Performance Analysis
-
-- Analyze performance by menu category (from couqley-sales group_performance)
-- Identify trending food types
-- Determine content themes for upcoming campaigns
-- Spot cross-sell opportunities
-
-### Cross-Sell Opportunities
-
-- Map item pairings from sales data
-- Create bundle promotion recommendations (couqley-menu-engineer marketing plays)
-- Generate server upsell scripts
-- Design combo meal suggestions
-
-## Template References
-
-Templates live in this skill folder: `skills/marketing/templates/`
-
-- **Marketing Summary Dashboard**: `templates/marketing_summary.html`
-- **Social Calendar**: `templates/social_calendar.html`
-- **Promotion Design**: `templates/promo_design.html`
+## Example Post (Challenge item — Sole Meunière)
+"Delicate, buttery, and finished tableside — our Sole Meunière is a quiet masterpiece that deserves more time in the spotlight. Ask your server about tonight's preparation. 🐟🍋 #CouqleyFrenchBistro #SoleMeuniere #FrenchBistro"
 
 ## Brand Compliance
-
-All marketing outputs must follow Couqley brand guidelines:
-- Reference the `couqley-brand` skill for visual standards
-- Maintain warm, inviting, sensory tone
-- Use approved color palette and typography
-- Ensure French bistro aesthetic consistency
-
-## Example Workflow
-
-1. User uploads REP_S_00001_sales.csv to `reports/`
-2. Run couqley-sales → get top items, slow movers, group breakdown
-3. Run couqley-menu-engineer if REP_S_00506 is available → get Challenge items
-4. This skill uses those insights to generate social calendar, promo designs, email copy
-5. Output to `outputs/` with branded templates
-6. All materials follow couqley-brand guidelines
+- All content follows Couqley brand guidelines (see couqley-brand skill)
+- Cream backgrounds, Red accents, Gold borders in all HTML output
+- File naming: `Couqley_Marketing_[Description]_[YYYY-MM].html`

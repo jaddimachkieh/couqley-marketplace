@@ -1,88 +1,59 @@
 ---
 name: couqley-breakeven
-description: Break-even forecast analysis. Upload an Accounting Excel file and get monthly P&L, break-even point, and 12-month forecast dashboard. Uses the Chart of Accounts mapping sheet for accurate account classification.
+description: Break-even forecast analysis. Upload an Accounting Excel file and get monthly P&L, break-even point, and 12-month forecast dashboard.
 ---
 
 # Break-Even Analysis
 
 ## Trigger
-User uploads an Accounting Excel file (.xlsx) and asks for break-even analysis, financial forecast, or P&L summary.
+User uploads or references an Accounting Excel file (.xlsx) and asks for break-even analysis, financial forecast, or P&L summary.
 
 ## Input
 - **File:** Accounting Excel (.xlsx) exported from Omega POS
-- **Expected columns:** DATE, M DOLLAR (debits), D DOLLAR (credits), HISAB_NAME (account name), SAB NUMBER or HISAB_NUMBER (account number)
-- **Mapping file (bundled):** `reference/Mapping Sheet.xlsx` in plugin — Chart of Accounts with IS Family classifications (auto-loaded from plugin)
+- **Key columns:** DATE, M DOLLAR (debits), D DOLLAR (credits), HISAB_NAME (account name), SAB NUMBER or HISAB_NUMBER (account number)
+
+If no file is provided, ask: "Please upload your Omega POS Accounting Excel file (.xlsx) to get started."
+
+## Account Classification
+Classify accounts into P&L categories using the account name (HISAB_NAME):
+
+- **Revenue:** Food Sales, Beverage Sales, Kiosk Sales, Other Revenues — use Credit (D DOLLAR)
+- **COGS:** Food Cost, Beverage Cost, Kiosk COS, F&B Transfers — use Debit (M DOLLAR)
+- **Operating Expense:** Staff Cost, Rent, Electricity, Maintenance, Marketing, Delivery, Professional Services, and similar — use Debit (M DOLLAR)
+- **Exclude:** Balance Sheet accounts (assets, liabilities, equity)
 
 ## Workflow
 
-**Paths:** Look for reports in the project's `reports/` folder. Save dashboards to `outputs/`. Mapping Sheet is bundled in the plugin (`reference/Mapping Sheet.xlsx`).
-
-1. Save uploaded file to `reports/` folder
-2. Run `scripts/parse.py` → `parse_excel_accounting(xlsx_path)` or `format_accounting_excel(xlsx_path)`
-   - Automatically loads bundled `reference/Mapping Sheet.xlsx` (Chart of Accounts) and joins on account number
-   - Each transaction is enriched with `report_type`, `is_family`, and `bs_cat`
-3. Run `scripts/analyze.py` → `break_even_forecast(df)` → returns analysis dict
-   - Uses IS Family for exact Revenue / COGS / OpEx classification
-   - Falls back to keyword matching if mapping sheet is missing
-4. Populate `templates/dashboard.html` with analysis data
-5. Save output to `outputs/` folder
-6. Present business impact summary first, then offer dashboard
+1. **Read the file** — Read the Excel content directly from the uploaded file or working folder
+2. **Parse transactions** — Extract date, account name, debit (M DOLLAR), credit (D DOLLAR)
+3. **Classify accounts** — Map each account to Revenue / COGS / Operating Expense using name keywords
+4. **Aggregate monthly** — Sum Revenue, COGS, OpEx by month; calculate Gross Profit and Net Profit
+5. **Calculate break-even** — Month where cumulative net profit crosses zero
+6. **12-month forecast** — Project forward using last 3 months average growth rate (cap at ±20%/month)
+7. **Generate HTML dashboard** — Save to working folder as `Couqley_Breakeven_[date].html`
+8. **Present summary first**
 
 ## Output
-- Branded HTML dashboard with revenue vs expenses chart, cumulative break-even, forecast
-- Expense breakdown by IS Family (e.g., Food Cost, Staff Cost, Rent)
-- Executive summary: "Based on [X] months of data, monthly profit averages $[Y] with break-even [status]"
 
-## Scripts (local to this skill)
-- `scripts/parse.py` — Parses Accounting Excel files with mapping sheet integration
-- `scripts/analyze.py` — Break-even calculation, monthly aggregation, 12-month forecast
+### Executive Summary (always first)
+"Based on [X] months of data, average monthly revenue is $[Y] with average expenses of $[Z], yielding a net of $[N]. Break-even [achieved in month X / projected for month Y]."
 
-## Key Functions
-
-### parse.py
-- `load_account_mapping(mapping_path)` → DataFrame with account_number, report_type, is_family, bs_cat
-- `parse_excel_accounting(xlsx_path, mapping_path=None)` → DataFrame enriched with mapping columns
-- `format_accounting_excel(xlsx_path, mapping_path=None)` → Cleaned DataFrame with standardized names + mapping
-
-### analyze.py
-- `categorize_from_is_family(is_family)` → 'Revenue' | 'COGS' | 'Operating Expense' | 'Other' (primary method)
-- `categorize_account(account_name)` → Same categories via keyword matching (fallback)
-- `break_even_forecast(df, forecast_months=12)` → dict with historical_monthly, forecast_monthly, break_even_months, chart_data, summary, summary_text, expense_breakdown
-
-## Account Classification
-
-### Primary: Mapping Sheet (IS Family)
-The bundled Mapping Sheet classifies accounts by their IS Family:
-
-- **Revenue:** Food Sales, Beverage Sales, Kiosk Sales, Other Revenues
-- **COGS:** Food Cost, Beverage Cost, COGS Branches Adjustment, Kiosk COS, F&B Transfers
-- **Operating Expense:** Staff Cost, Rent & Related Charges, DOE, Marketing & Promotion Activities, Electricity & Generator, Maintenance & Repairs, Delivery Cost, Professional Services, and 14 more families
-- **Filtered out:** Balance Sheet (BS) accounts are excluded from P&L
-
-### Fallback: Keyword Matching
-When no mapping sheet is available, accounts are classified by name keywords (less accurate).
-
-### Join Logic
-- Accounting Excel column `SAB NUMBER` (or `HISAB_NUMBER`) → Mapping Sheet column `Account #`
-- Account numbers are cleaned of `_x000D_\n` Excel XML artifacts before joining
-- Unmatched transactions fall back to keyword classification
-
-## Forecast Model
-- Uses last 3 months of historical data as baseline
-- Applies compound growth rate for revenue and expenses
-- Growth rates auto-calculated from trends or manually specified
-- Capped at ±20% monthly growth for realistic projections
-- COGS/OpEx forecast split uses actual historical ratio (not hardcoded)
-
-## Dashboard Components
-- Status banner (Profitable/At Risk/Below Break-Even)
-- Key metrics grid (avg revenue, expenses, net, cumulative)
-- Historical vs Forecast comparison cards
-- Monthly Revenue vs Expenses line chart (Chart.js)
-- Cumulative Break-Even analysis chart
-- Key insight cards with positive/warning indicators
+### HTML Dashboard
+Generate a complete, self-contained HTML file with:
+- **Brand colors:** Cream `#F7F3E9`, Red `#CC3333`, Gold `#BF9966`
+- **Sections:**
+  1. Header with Couqley French Bistro branding and status banner (Profitable / At Risk / Below Break-Even)
+  2. KPI cards (avg monthly revenue, avg monthly expenses, avg net profit, break-even status)
+  3. Monthly P&L table (month, revenue, COGS, gross profit, OpEx, net profit)
+  4. Revenue vs Expenses line chart (Chart.js CDN)
+  5. Cumulative net profit chart showing break-even crossing point
+  6. Expense breakdown by category (% of total OpEx)
+  7. 12-month forecast table (Historical vs Projected)
+  8. Key insights cards (3–5 observations)
+- Save as `Couqley_Breakeven_Analysis_[YYYY-MM].html`
 
 ## Brand Compliance
-- Colors: Cream (#F7F3E9), Red (#CC3333), Gold (#BF9966)
-- Typography: Georgia serif, professional financial presentation
-- Charts: Brand colors, clear labels, tooltips with $ formatting
+- Cream `#F7F3E9` backgrounds, Red `#CC3333` headers, Gold `#BF9966` accents
+- Profitable = green indicator, At Risk = amber, Below Break-Even = red
+- Currency: $1,234 format
+- Professional financial tone
