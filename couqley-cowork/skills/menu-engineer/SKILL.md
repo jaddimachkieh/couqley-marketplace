@@ -1,6 +1,7 @@
 ---
 name: couqley-menu-engineer
 description: Menu engineering analysis using Boston Matrix methodology. Upload a Menu Engineering CSV (REP_S_00506) and get Challenge item marketing plays, profit optimization, and branded dashboard.
+disable-model-invocation: true
 ---
 
 # Menu Engineering Analysis

@@ -1,6 +1,7 @@
 ---
 name: couqley-breakeven
 description: Break-even forecast analysis. Upload an Accounting Excel file and get monthly P&L, break-even point, and 12-month forecast dashboard.
+disable-model-invocation: true
 ---
 
 # Break-Even Analysis
@@ -42,7 +43,7 @@ Classify accounts into P&L categories using the account name (HISAB_NAME):
 Generate a complete, self-contained HTML file with:
 - **Brand colors:** Cream `#F7F3E9`, Red `#CC3333`, Gold `#BF9966`
 - **Sections:**
-  1. Header with Couqley French Bistro branding and status banner (Profitable / At Risk / Below Break-Even)
+  1. Header with Couqley French Bistro branding and status banner (so rofitable / At Risk / Below Break-Even)
   2. KPI cards (avg monthly revenue, avg monthly expenses, avg net profit, break-even status)
   3. Monthly P&L table (month, revenue, COGS, gross profit, OpEx, net profit)
   4. Revenue vs Expenses line chart (Chart.js CDN)

@@ -1,6 +1,7 @@
 ---
 name: couqley-marketing
 description: Comprehensive marketing analysis for Couqley Bistro. Uses sales and menu engineering data to generate social content calendars, promo designs, and marketing dashboards.
+disable-model-invocation: true
 tags: [marketing, analysis, social-media, promotions, strategy]
 ---
 

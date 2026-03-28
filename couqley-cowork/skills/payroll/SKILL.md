@@ -1,6 +1,7 @@
 ---
 name: couqley-payroll
 description: Payroll analysis. Upload a Payroll Excel file and get department breakdown, top earners, cost trends, and branded dashboard.
+disable-model-invocation: true
 ---
 
 # Payroll Analysis

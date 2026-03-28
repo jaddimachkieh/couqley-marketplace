@@ -1,6 +1,7 @@
 ---
 name: couqley-omega-extract
 description: Step-by-step guide to manually download reports from the Omega POS system and prepare them for analysis.
+disable-model-invocation: true
 tags: [omega, pos, extraction, data, reports]
 ---
 

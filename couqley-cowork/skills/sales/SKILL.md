@@ -1,6 +1,7 @@
 ---
 name: couqley-sales
 description: Sales performance analysis. Upload a Sales Report CSV (REP_S_00001) and get top items, group breakdown, slow movers, and branded dashboard.
+disable-model-invocation: true
 ---
 
 # Sales Analysis
