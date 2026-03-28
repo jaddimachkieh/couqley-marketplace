@@ -1,0 +1,12 @@
+{
+  "name": "couqley-cowork",
+  "description": "Couqley French Bistro analytics: sales analysis, menu engineering (Boston Matrix), break-even forecast, payroll, marketing. Upload Omega POS CSVs/Excel to reports/, get branded dashboards.",
+  "version": "1.0.0",
+  "author": {
+    "name": "jad Dimachkieh"
+  },
+  "homepage": "https://github.com/jaddimachkieh/couqley-marketplace",
+  "repository": "https://github.com/jaddimachkieh/couqley-marketplace",
+  "license": "MIT",
+  "skills": ["./couqley-cowork/skills/"]
+}
