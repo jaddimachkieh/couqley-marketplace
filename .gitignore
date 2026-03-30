@@ -1,3 +1,6 @@
+# Worktrees
+.worktrees/
+
 # User data
 outputs/
 reports/*.csv
