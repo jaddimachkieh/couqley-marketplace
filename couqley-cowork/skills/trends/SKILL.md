@@ -18,10 +18,10 @@ If no file is provided, ask: "Please upload your Omega POS Transactions by Date 
 ## Parsing Rules
 
 ### Rows to Keep
-Keep only rows where:
+First, apply the Last-Page Column Shift detection (see below) to determine the correct column indices. Then keep only rows where:
 - Column 0 is a numeric invoice number
-- Column 11 (Total) is greater than 0.00
-- Table number does not equal 600, 800, or 1000
+- The resolved Total column (index 11 on normal pages, index 12 on the last page) is greater than 0.00
+- The resolved Table number does not equal 600, 800, or 1000
 
 ### Rows to Skip
 Skip any row where column 0 contains:
@@ -41,7 +41,7 @@ On the final page, an extra empty column appears between Close Time and Table #.
 - **Table #:** Integer. Classify: 1–299 = "dine-in", 300–399 = "delivery"
 - **Covers (Cust.#):** Integer
 - **Total:** Float. Skip rows where Total == 0.00
-- **avg_check:** Total / Covers (skip if Covers == 0)
+- **avg_check:** Total / Covers (set to null if Covers == 0 — do not skip the row)
 
 ## Analysis Workflow
 
