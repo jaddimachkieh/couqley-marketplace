@@ -150,6 +150,74 @@ This report contains detailed transaction-level sales data. Format is similar to
 
 ---
 
+### 5. Transactions by Date (REP_S_00002)
+
+**File format:** CSV exported from PDF
+**Parser:** Follow inline parsing rules in `couqley-trends` skill
+**Example file:** `rep_s_00002_trans.csv`
+
+#### CSV Layout
+```
+Row 0: "Couqley Gemayzeh" (branch name)
+Row 1: "Transactions by Date"
+Row 2: Print date, From Date, To Date, Page X of Y
+Row 3: Column headers
+Row 4: "Branch: Couqley Gemayzeh"
+Row 5+: Data rows interspersed with page-break lines and repeated headers
+Footer: Summary totals, copyright line, HTML error artifact
+```
+
+#### Column Structure (13 columns, 0-indexed)
+
+| Index | Header | Type | Description |
+|-------|--------|------|-------------|
+| 0 | Invoice # | int | Transaction ID |
+| 1 | Date | text | DD-Mon-YYYY (e.g., "01-Jan-2026") |
+| 2 | Close Time | text | HH:MM — when the table bill was closed |
+| 3 | Table # | int | Table identifier (see classification below) |
+| 4 | Cust.# | int | Number of covers/guests at the table |
+| 5 | Print# | int | Number of receipt prints |
+| 6 | Amount | float | Pre-tax, pre-discount subtotal |
+| 7 | Service | float | Service charge |
+| 8 | Discount | float | Discount applied |
+| 9 | Tax | float | Tax amount (≈11%) |
+| 10 | Pay By | text | Payment method ("Cash $", "Toters", etc.) |
+| 11 | Total | float | Final amount paid |
+| 12 | (empty) | — | Trailing empty column — skip |
+
+#### Last-Page Anomaly
+On the final PDF page, an extra empty column is inserted between Close Time (index 2) and Table # (index 3), shifting all subsequent columns right by one. Detect this by checking if the value at index 3 is empty — if so, use index 4 for Table # and shift all remaining columns accordingly.
+
+#### Table Classification
+| Range | Channel |
+|-------|---------|
+| 1–299 | Dine-in |
+| 300–399 | Toters delivery |
+| 600, 800, 1000 | Special/comp — exclude from analysis |
+
+#### CSV Artifacts to Filter
+- Page break lines: "Page X of Y"
+- Repeated header rows ("Invoice #,Date,Close Time...")
+- Branch label rows ("Branch: Couqley Gemayzeh")
+- Print date rows ("30-Mar-2026,,From Date:...")
+- Footer summary rows ("Total For:", "Total:", "Gross Sales:", "Net Revenue:", "Net Sales:", "Total Tax:", "Total Service:", "Total Discount:")
+- Copyright line ("Copyright © Omega Software")
+- URL line ("www.omegapos.com")
+- HTML error artifact (`<div>`, `<footer>`, "Error Occured", "Cannot modify")
+- $0.00 Total transactions (comps/voids — exclude from all analysis)
+
+#### Output DataFrame Columns (after parsing)
+```
+invoice (int), date (datetime), hour (int, 0-23),
+day_of_week (str: "Mon"–"Sun"), table (int), covers (int),
+amount (float), service (float), discount (float), tax (float),
+pay_by (str), total (float),
+channel (str: "dine-in" or "delivery"),
+avg_check (float: total / covers, null if covers == 0)
+```
+
+---
+
 ## Parsing Quick Reference
 
 ```python
