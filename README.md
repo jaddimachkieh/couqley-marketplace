@@ -21,7 +21,7 @@ mkdir reports outputs
 
 - Put Omega POS reports (CSV, Excel) in `reports/`
 - Dashboards save to `outputs/`
-- Report types: REP_S_00001 (sales), REP_S_00506 (menu engineering), accounting Excel, payroll Excel
+- Report types: REP_S_00001 (sales), REP_S_00002 (transactions/trends), REP_S_00506 (menu engineering), accounting Excel, payroll Excel
 - Mapping Sheet for break-even is bundled — no setup needed
 
 ## Skills
@@ -32,6 +32,7 @@ Invoke plugin skills with slash commands using each skill’s **`name`** from `S
 |--------------------------|-------|--------|
 | `/couqley-brand` | — | Brand and financial reporting guidelines |
 | `/couqley-sales` | REP_S_00001 CSV | Top items, group performance, slow movers |
+| `/couqley-trends` | REP_S_00002 CSV | Hourly heatmap, daily trends, delivery split, 7-day forecast |
 | `/couqley-menu-engineer` | REP_S_00506 CSV | Boston Matrix, Challenge items |
 | `/couqley-breakeven` | Accounting Excel | P&L, break-even, 12-month forecast |
 | `/couqley-payroll` | Payroll Excel | Department breakdown, top earners |
@@ -46,6 +47,7 @@ Invoke plugin skills with slash commands using each skill’s **`name`** from `S
 - "Break-even forecast for this year"
 - "Create a 4-week social media calendar"
 - "Build a marketing summary dashboard"
+- "Show me our busiest hours and forecast next week's covers"
 
 ## Troubleshooting
 
